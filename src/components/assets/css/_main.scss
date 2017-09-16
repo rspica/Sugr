@@ -1,0 +1,216 @@
+body {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    font: $fontBody;
+    background-color: rgb(238,238,238)
+}
+
+.headWrapper {
+    padding: 10px 50px 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.background {
+    background-color: rgba( $modalBG, .7);
+    padding: 20px;
+}
+
+.col-3 {
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.flexSize {
+    flex: 3;
+}
+
+.flexSize1 {
+    flex: 1;
+}
+.bgImage {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+}
+
+/*  universal input field styles on all forms */
+
+input {
+    @extend button;
+    border-bottom: 1px solid $primaryColor;
+    color: $primaryColor !important;
+
+    &::placeholder {
+        font: $formFont;
+        color: $secondaryColor;
+    }
+
+/* -- adds input field name to top of field test -- */
+    &:placeholder-shown+label {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #fff;
+    }
+}
+
+ label {
+    font: $formFont;
+    color: $secondaryColor;
+    background-color: $modalBG;
+    border: 1px solid $primaryColor;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    padding: 0 5px;
+    transition: all 0.35s;
+    transform: translateY(calc(-50% - 1px));
+}
+
+
+
+/*. Unversal button style for all pages and forms*/
+
+button {
+    box-sizing: border-box;
+    background-color: transparent;
+    border-style: none;
+    outline: none;
+    font: $formFont;
+    line-height: 1.7;
+    color: #fff;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+button:hover {
+    color: $secondaryColor;
+}
+
+.navLabel button {
+    font: $formFont;
+    color: $primaryColor;
+    height: 40px;
+
+    &:hover {
+        color: $secondaryColor;
+    }
+}
+
+.btnLabel {
+    font: $formFont;
+}
+
+.Btn {
+    box-sizing: border-box;
+    border: 1px solid $secondaryColor;
+    background-color: $secondaryColor;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+
+/*  this hides and shows login status  */
+
+.logContainer {
+    display: none;
+}
+
+.display {
+    display: flex;
+}
+
+
+/* icons for hover states */
+
+.icon {
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    width: 20px;
+    height: 17px;
+    transform: translateX(-50%);
+    transition: all .25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
+}
+
+.iconDown {
+    z-index: 10;
+    top: 0px;
+}
+
+.titleText {
+    font-size: 2.3em;
+    line-height: 1.25;
+    color: $secondaryColor;
+    margin-bottom: 25px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+    font: $fontLogo;
+}
+
+.searchWrapper {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.btnSearch {
+    float: right;
+    width: 50px;
+}
+
+.embed-submit-field {
+  position: relative;
+  
+  input {
+    width: 100%;
+    padding: 15px;
+  }
+
+  button {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    
+    //Only styling from here, you can discard this
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    border: none;
+    background: #ededed;
+    border-radius: 3px;
+    padding: 10px;
+    
+    transition: all .2s;
+    
+    &:hover {
+      background-color: #37C88D;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+@import 'responsive';

@@ -1,0 +1,53 @@
+/*-- Responsive breakpoints --*/
+
+@media screen and (min-width: 725px) and (max-width: 1000px) {
+    .modalContent {
+        width: 65%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 724px) {
+    .modalContent {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .logo {
+    font-size: 3.7em;
+    }
+
+    .headWrapper {
+        padding: 6px 15px 10px;
+    }
+
+    .SearchWrapper {
+        margin-top: 20px;
+        width: 90%;
+    }
+
+    .modalContent {
+        width: 90%;
+    }
+
+    .titleText {
+        font-size: 1.7em;
+    }
+
+    .boxStyle {
+        margin-bottom: 15px;
+    }
+
+    .row {
+        display: block;
+    }
+}
+
+
+
+/*@media screen and (max-width: 460px) {
+    .modalContent {
+        width: 90%;
+    }
+}*/
