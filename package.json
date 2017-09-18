@@ -1,8 +1,9 @@
 {
-  "name": "test3",
+  "name": "sugr",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "jshint": "^2.9.5",
     "material-ui": "^0.19.1",
     "react": "^15.6.1",
