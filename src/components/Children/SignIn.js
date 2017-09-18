@@ -21,22 +21,20 @@ export default class SignIn extends Component {
   constructor(props) {
     super(props);
 
-    this.closeSignIn = this.closeSignIn.bind(this);
   }
-  closeSignIn = () => {
-    console.log('clicking close in signIn')
-    this.props.handleClick("null");
-  }
+
 
   render() {
     console.log('signIn: ',this.props.CurrentModal)
     console.log("signIn prop ",this.props)
+    console.log('from sign in this.closeModal: ',this.props.closeModal)
+    console.log
 
     return (
       <div className="modalForm">
         <div className="modalContent">
           <span 
-            onClick = { this.closeSignIn }
+            onClick = { this.props.closeModal }
             className = "xClose">&times;</span>
             
           <div className="welcome">
@@ -47,7 +45,8 @@ export default class SignIn extends Component {
             <span id="error"></span>
           </div>
 
-        <div className="inputWrapper">                <form>
+        <div className="inputWrapper">                
+          <form>
           <TextField 
             name="email"
             hintText="email"
@@ -61,7 +60,7 @@ export default class SignIn extends Component {
             hintText="password"
             floatingLabelText="Password"
             style={ modalStyle.inputStyle }
-            onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')}} 
+            onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'password')}} 
           />
           </form>
         </div>

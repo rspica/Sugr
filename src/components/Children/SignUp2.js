@@ -26,6 +26,10 @@ export default class Form extends Component {
     this.props.handleClick("null");
   }
 
+  ClickSignUp = () => {
+    this.props.handleClick("SignUp")
+  }
+
   state = {
     fullName:'',
     fullNameErr:'',
@@ -39,35 +43,33 @@ export default class Form extends Component {
     confPassErr:''
   };
 
-  change = e => {
-    this.props.onChange({ [e.target.name]: e.target.value });
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
+  // change = e => {
+  //   this.props.onChange({ [e.target.name]: e.target.value });
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
-  onSubmit = e => {
-    e.preventDefault();
-    // this.props.onSubmit(this.state);
-    this.setState({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
-    this.props.onChange({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
-  };
+  // onSubmit = e => {
+  //   e.preventDefault();
+  //   // this.props.onSubmit(this.state);
+  //   this.setState({
+  //     firstName: "",
+  //     lastName: "",
+  //     username: "",
+  //     email: "",
+  //     password: ""
+  //   });
+  //   this.props.onChange({
+  //     User.firstName: "",
+  //     lastName: "",
+  //     username: "",
+  //     email: "",
+  //     password: ""
+  //   });
+  // };
 
-  ClickSignUp = () => {
-    this.props.handleClick("SignUp")
-  }
+
 
   render() {
     console.log('signUp: ',this.props.CurrentModal)

@@ -10,7 +10,8 @@ export default class Header extends Component {
   
   ClickSignIn = () => {
     this.props.handleClick("SignIn")
-  }
+    }
+  
   
   ClickSignUp = () => {
     this.props.handleClick("SignUp")
@@ -22,7 +23,7 @@ export default class Header extends Component {
 
    <div className="headWrapper"> 
       <div className="navContainer row">
-        <div className="navLabel signInBtn">
+        <div className="navLabel">
           <button 
             onClick = { this.clickSignIn } //currentModal = SignIn
             id="btn-Login btnLogin">

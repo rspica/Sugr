@@ -11,6 +11,7 @@ const LpSearchStyle = {
     primary: true,
     textTransform: 'capitalize',
     height: 60,
+    width: '25%',
   },
   inputStyle: {
     backgroundColor: '#F5F5F5',
@@ -25,6 +26,8 @@ const LpSearchStyle = {
 
 export default class LpSearch extends Component {
   render() {
+    console.log("LpSearch prop ",this.props)
+    console.log(' this.props.clickSearch: ',  this.props.clickSearch )
     return (
     
     <div>
@@ -42,9 +45,10 @@ export default class LpSearch extends Component {
             style={ LpSearchStyle.inputStyle }
           />
           <FlatButton 
-            label="Show Me"
-            style={ LpSearchStyle.btnStyle }
-            onClick={ this.clickSearch }
+            label = "Show Me"
+            style = { LpSearchStyle.btnStyle }
+            onClick = { this.props.clickSearch }
+
           />
         </div>
       </div>
