@@ -12,6 +12,8 @@ const modalStyle = {
   btnStyle: {
   labelPosition: 'after',
   backgroundColor: 'tomato',
+
+  textTransform: 'lowercase',
   height: 60,
   width: '100%',
   }

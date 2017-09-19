@@ -7,7 +7,7 @@ body {
 }
 
 .headWrapper {
-    padding: 10px 50px 10px;
+    padding: 10px 20px 10px;
     display: flex;
     align-items: center;
     background-color: white;
@@ -66,7 +66,8 @@ input {
 
     &::placeholder {
         font: $formFont;
-        color: $secondaryColor;
+        font-style: italic;
+        color: $tertiaryColor;
     }
 
     &:placeholder-shown {
@@ -78,21 +79,23 @@ input {
 
 button {
     box-sizing: border-box;
-    background-color: transparent;
-    border-style: none;
-    outline: none;
+    padding-left: 5px;
+    padding-right: 10px;
     font: $formFont;
     line-height: 1.7;
     color: #fff;
     display: block;
+    background-color: transparent;
+    border-style: none;
+    outline: none;
     position: relative;
     overflow: hidden;
     text-align: left;
     cursor: pointer;
-}
 
-button:hover {
-    color: $secondaryColor;
+    &:hover {
+      color: $secondaryColor;
+    }
 }
 
 .navLabel button {
@@ -101,9 +104,26 @@ button:hover {
     height: 40px;
 
     &:hover {
-        color: $secondaryColor;
+        color: $tertiaryColor;
     }
 }
+
+.navLabel {
+
+    li { padding-top: 7px; }
+
+    a {
+        font: $formFont;
+        color: $primaryColor;
+        height: 40px;
+
+        &:hover {
+            color: $tertiaryColor;
+        }
+    }
+}
+
+
 
 .display {
     display: flex;

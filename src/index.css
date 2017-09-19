@@ -1,5 +1,5 @@
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, h4, h5, h6, p, blockquote, button, input, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -56,7 +56,7 @@ body {
   background-color: #eeeeee; }
 
 .headWrapper, .headWrapperMain, .headWrapperDashBrd {
-  padding: 10px 50px 10px;
+  padding: 10px 20px 10px;
   display: flex;
   align-items: center;
   background-color: white; }
@@ -65,8 +65,7 @@ body {
   justify-content: flex-end; }
 
 .headWrapperDashBrd {
-  justify-content: space-between;
-  align-items: center; }
+  justify-content: space-between; }
 
 .row {
   display: flex;
@@ -102,35 +101,46 @@ input {
   padding-left: 20px;
   color: #FF8A80 !important; }
   input::placeholder {
-    font: 400 1em "Monserrat", sans-serif;
-    color: #90CAF9; }
+    font: 300 1em "Monserrat", sans-serif;
+    font-style: italic;
+    color: #afafaf; }
   input:placeholder-shown {
     border: 2px solid #90CAF9; }
 
 /*. Unversal button style for all pages and forms*/
 button, input {
   box-sizing: border-box;
-  background-color: transparent;
-  border-style: none;
-  outline: none;
-  font: 400 1em "Monserrat", sans-serif;
+  padding-left: 5px;
+  padding-right: 10px;
+  font: 300 1em "Monserrat", sans-serif;
   line-height: 1.7;
   color: #fff;
   display: block;
+  background-color: transparent;
+  border-style: none;
+  outline: none;
   position: relative;
   overflow: hidden;
   text-align: left;
   cursor: pointer; }
-
-button:hover, input:hover {
-  color: #90CAF9; }
+  button:hover, input:hover {
+    color: #90CAF9; }
 
 .navLabel button, .navLabel input {
-  font: 400 1em "Monserrat", sans-serif;
+  font: 300 1em "Monserrat", sans-serif;
   color: #FF8A80;
   height: 40px; }
   .navLabel button:hover, .navLabel input:hover {
-    color: #90CAF9; }
+    color: #afafaf; }
+
+.navLabel li {
+  padding-top: 7px; }
+.navLabel a {
+  font: 300 1em "Monserrat", sans-serif;
+  color: #FF8A80;
+  height: 40px; }
+  .navLabel a:hover {
+    color: #afafaf; }
 
 .display {
   display: flex; }
@@ -160,6 +170,7 @@ button:hover, input:hover {
   justify-content: center;
   width: 100%;
   height: 100%;
+  z-index: 8;
   position: absolute;
   top: 0;
   left: 0;
@@ -201,7 +212,7 @@ button:hover, input:hover {
 
 .errDisplay {
   background-color: red;
-  font: 400 1em "Monserrat", sans-serif;
+  font: 300 1em "Monserrat", sans-serif;
   color: white;
   border: 1px solid red;
   padding: 10px 20px 10px;

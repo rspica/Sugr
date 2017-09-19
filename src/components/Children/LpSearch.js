@@ -19,6 +19,9 @@ const LpSearchStyle = {
     borderStyle: 'solid',
     borderWidth: '1px',
     padding: '10px,',
+    'input::placeholder': {
+      color: 'red',
+    }
   }
 };
 
@@ -39,7 +42,7 @@ export default class LpSearch extends Component {
           <input 
             id="search" 
             type="text" 
-            placeholder="Search" required 
+            placeholder='Search for food eg. "bananas", Snickers Bar"' required 
             onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'SearchItem')}}
             style={ LpSearchStyle.inputStyle }
           />

@@ -34,9 +34,6 @@ const muiTheme = getMuiTheme({
     alternateTextColor: white,
     canvasColor: white,
     borderColor: grey300,
-    // disabledColor: fade(darkBlack, 0.3),
-    pickerHeaderColor: cyan500,
-    // clockCircleColor: fade(darkBlack, 0.07),
     shadowColor: fullBlack,
   },
   TextField:
