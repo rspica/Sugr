@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Logo from './components/Children/Logo'
+
+import DboardHead  from './components/Children/DboardHead';
+import UserProfile from './components/Children/UserProfile';
 
 
 export default class Dashboard extends Component {
@@ -7,7 +9,9 @@ export default class Dashboard extends Component {
     return (
       <div>
       	
-      	<Logo />
+      	<DboardHead />
+        <UserProfile />
+
       	
       </div>
     );

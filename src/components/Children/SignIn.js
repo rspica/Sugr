@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from "react-router";
 
-import TextField from 'material-ui/TextField';
+import TextField  from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
 const modalStyle = {
@@ -22,7 +23,6 @@ export default class SignIn extends Component {
     super(props);
 
   }
-
 
   render() {
     console.log('signIn: ',this.props.CurrentModal)
@@ -67,7 +67,10 @@ export default class SignIn extends Component {
 
           <FlatButton 
             label="Sign In" 
-            style={ modalStyle.btnStyle } />
+            style={ modalStyle.btnStyle }
+            containerElement={<Link to="/Dashboard" />} 
+            linkButton={true} />
+
 
           <div className="dividerOr">or</div>
 

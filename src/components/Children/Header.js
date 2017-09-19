@@ -21,19 +21,19 @@ export default class Header extends Component {
     console.log("header prop ",this.props)
     return (
 
-   <div className="headWrapper"> 
-      <div className="navContainer row">
+   <div className="headWrapperMain"> 
+      <div className="row">
         <div className="navLabel">
           <button 
             onClick = { this.clickSignIn } //currentModal = SignIn
-            id="btn-Login btnLogin">
+            >
           <h4> Log in </h4></button>
         </div>
 
-        <div className="navLabel signUpBtn">
+        <div className="navLabel">
           <button 
-            onClick = { this.clickSignUp } //currentModal = SignUp
-            id="btn-SignUp btnSignUp">
+            onClick = { this.clickSignUp } //currentModal = SignUp 
+            >
           <h4> Sign up </h4></button>
         </div>
       </div>

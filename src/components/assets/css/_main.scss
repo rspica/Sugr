@@ -4,15 +4,23 @@ body {
     margin: 0 auto;
     font: $fontBody;
     background-color: rgb(238,238,238);
-
 }
 
 .headWrapper {
     padding: 10px 50px 10px;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     background-color: white;
+}
+
+.headWrapperMain {
+    @extend .headWrapper;
+    justify-content: flex-end;
+}
+
+.headWrapperDashBrd {
+    @extend .headWrapper;
+    justify-content: space-between;
 }
 
 .row {
@@ -22,24 +30,19 @@ body {
 }
 
 .searchWrapper {
-    width: 65%;
+    width: 75%;
     margin: 0 auto;
-    position: absolute;
-    top: 45%;
-    left:50%;
-    transform: translate(-50%, -50%),
+    margin-top: 120px;
 }
 
 .bgImage {
-    position: absolute;
-    z-index: -1;
-    width: 75%;
+    width: 750px;
     margin: 0 auto;
     position: absolute;
-    top: 55%;
+    z-index: -1;
+    top: 75px;
     left:50%;
-    transform: translate(-50%, -50%),
-
+    transform: translatex(-50%);
 }
 
 .logo {
@@ -50,6 +53,7 @@ body {
 
 .searchBar {
     display: flex;
+    height: 45px;
 }
 
 /*  universal input field styles on all forms */
@@ -101,23 +105,9 @@ button:hover {
     }
 }
 
-.btnLabel {
-    font: $formFont;
-}
-
-.Btn {
-    box-sizing: border-box;
-    border: 1px solid $secondaryColor;
-    background-color: $secondaryColor;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-
 .display {
     display: flex;
 }
-
-
 
 .btnSearch {
     float: right;

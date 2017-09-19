@@ -10,8 +10,8 @@ const LpSearchStyle = {
     backgroundColor: '#90CAF9',
     primary: true,
     textTransform: 'capitalize',
-    height: 60,
-    width: '25%',
+    width: '30%',
+    height: '45',
   },
   inputStyle: {
     backgroundColor: '#F5F5F5',
@@ -19,7 +19,6 @@ const LpSearchStyle = {
     borderStyle: 'solid',
     borderWidth: '1px',
     padding: '10px,',
-    height: 60,
   }
 };
 

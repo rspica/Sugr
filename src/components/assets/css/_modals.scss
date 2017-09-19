@@ -37,7 +37,6 @@
 }
 
 
-
 /* The Close Button (x) upper right corner*/
 .xClose {
     position: absolute;
@@ -55,7 +54,7 @@
 
 .welcome h1 {
     font: $fontLogo;
-    font-size: 4em;
+    font-size: 3.65em;
     color: $primaryColor;
     margin-bottom: 20px;
 }
@@ -76,7 +75,7 @@
 
 .dividerOr {
     text-align: center;
-    margin: 30px 0;
+    margin: 20px 0;
     color: $secondaryColor;
     font-size: .8em;
     position: relative;

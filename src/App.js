@@ -107,10 +107,16 @@ clickSearch = () => {
         foodType: resp.data.hits,
         foodName: resp.data.hits[0].fields.item_name
       })  
-           console.log('food by name response: ',resp.data.hits); 
-          })   
-    } 
- 
+    console.log('food by name response: ',resp.data.hits); 
+    this.mapAllFood();
+  })   
+} 
+
+  mapAllFood = () => {
+    this.state.foodType.map(food => {
+      console.log(food.fields.item_name)
+    })
+  }
 
 
 
@@ -137,7 +143,7 @@ clickSearch = () => {
           
         <div>
           <h1>search results</h1>
-          <div>food: </div>
+          <div>food:{} </div>
         </div>
         </div>
         </MuiThemeProvider>
