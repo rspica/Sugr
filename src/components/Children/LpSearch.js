@@ -50,7 +50,6 @@ export default class LpSearch extends Component {
             label = "Show Me"
             style = { LpSearchStyle.btnStyle }
             onClick = { this.props.clickSearch }
-
           />
         </div>
       </div>
