@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios            from 'axios';
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import {fade}               from 'material-ui/src/styles/colorManipulator';
+// import {fade}        from 'material-ui/src/styles/colorManipulator';
 // import SugrTheme from './utils/uiTheme.js';
 import {teal900, 
         cyan700, cyan500, 
@@ -15,10 +15,11 @@ import Logo         from './components/Children/Logo';
 import LpSearch     from './components/Children/LpSearch';
 import CurrentModal from './components/Children/CurrentModal';
 import SearchDspl   from './components/Children/SearchDspl';
-import routes from './components/routes';
-// import Api          from './utils/api'
+import dashboard    from './dashboard';
 
-// Material-ui custom themes
+// import API          from './utils/API'
+
+// Material-ui custom themes =========================================================
 const muiTheme = getMuiTheme({
   fontFamily: 'Monserrat, sans-serif',
   palette: {
@@ -38,13 +39,13 @@ const muiTheme = getMuiTheme({
   {"width":"100%",},
 });
 
-//=============================================
+//================================================================================
 let Food = (props => {
   return (
     <div>Food item: {props.food.item_name}</div>
   )
 })
-//============================================
+//================================================================================
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -58,7 +59,6 @@ export default class App extends Component {
       Search: {
         SearchItem:'',
         foodType: [],
-        foodName: [],
       },
       CurrentModal: null,
     };
@@ -69,7 +69,7 @@ export default class App extends Component {
     this.closeModal = this.closeModal.bind(this)
   }
 
-// modal activation sign-in / signup / no display
+// modal activation sign-in / signup / no display =============================
   handleClick = (clickVal) => {
     console.log(this)
     this.setState({
@@ -81,7 +81,7 @@ export default class App extends Component {
     this.handleClick("null");
   }
 
-// input value state change for all input fields 
+// input value state change for all input fields ==============================
     inputChange = (value, key ) => {
       this.setState({
         [key]: value
@@ -89,7 +89,7 @@ export default class App extends Component {
       console.log('value: ',value, 'key: ' ,key)
     };
 
-// landing page api call for search
+// landing page api call for searchbar on landing page and dashboard =========
 clickSearch = () => {
   const BASEURL = 'https://api.nutritionix.com/v1_1/search/';
   const APIKEY = '5234f7f1&appKey=c6da7cb3302759d1e20f3793daa4b711';
@@ -100,27 +100,27 @@ clickSearch = () => {
     .then(resp => {
       this.setState({
         foodType: resp.data.hits,
-        foodName: resp.data.hits[0].fields.item_name
       })  
     console.log('food by name response: ',resp.data.hits); 
-    this.mapAllFood();
+    this.mapAllFood(this.state.foodType);
   })   
 } 
 
-  mapAllFood = () => {
-    this.state.foodType.map(food => {
-      console.log(food.fields.item_name)
+  mapAllFood = (foods) => {
+    foods.map(food => {
+      console.log("Item Name: ",food.fields.item_name)
+      console.log("Brand Name: ",food.fields.brand_name)
+      console.log("sugars: ",food.fields.nf_sugars+"g")
+      console.log("serving size: ",food.fields.nf_serving_size_qty)
+      console.log("id: ",food._id)
+      console.log('****************************')
     })
   }
 
-
-
+  // =====================================================================
     render() {
-      
+     
       console.log('in render showing overall state: ',this.state)
-      console.log('in render foodtypes result response: ',this.state.Search.foodType);
-      console.log('mapping response array: ', 'xxx')
-      console.log('in render foodnames result response: ',this.state.Search.foodName);
       return (
         <MuiThemeProvider muiTheme={muiTheme}>
         <div>
@@ -135,11 +135,8 @@ clickSearch = () => {
           <LpSearch 
             clickSearch = { this.clickSearch }
             inputChange = { this.inputChange } />
-          
-        <div>
-          <h1>search results</h1>
-          <div>food:{} </div>
-        </div>
+          <SearchDspl
+            foodType = { this.state.foodType } />
         </div>
         </MuiThemeProvider>
       );
