@@ -3,6 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var FoodSchema = new Schema({
+	user: {
+		type: String,
+		default: 'Carol Jenkins'
+	},
 	item: {
 		type: String
 	},
@@ -13,6 +17,15 @@ var FoodSchema = new Schema({
 
 	sugar: {
 		type: Number
+	},
+
+	date: {
+		type: String
+	},
+
+	logged: {
+		type: Boolean,
+		default: false
 	}
 });
 

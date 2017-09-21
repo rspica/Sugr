@@ -3,6 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var FoodSchema = new Schema({
+	user: {
+		type: String,
+		default: 'Carol Jenkins'
+	},
 	item: {
 		type: String
 	},

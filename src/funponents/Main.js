@@ -17,13 +17,16 @@ class Main extends Component {
     brand: [],
     weekly: [],
     results: [],
-    log: false,
+    logged: false,
     savedFoods: '',
-    showResults: false
+    showResults: false,
+    user: 'Carol Jenkins'
   };
 
   componentDidMount() {
     this.searchFood();
+    // API.searchUser(userdata[userdata.length-1].user);
+    // this.setState({ user: res.data.user });
   }
 
   searchFood = () => {
@@ -64,8 +67,9 @@ class Main extends Component {
         brand: [],
         weekly: [],
         results: [],
-        log: false,
-        showResults: false
+        logged: false,
+        showResults: false,
+        name: 'Carol Jenkins'
       });
     } else {
       this.setState({
@@ -75,8 +79,9 @@ class Main extends Component {
         brand: [],
         weekly: [],
         results: [],
-        log: false,
-        showResults: true
+        logged: false,
+        showResults: true,
+        name: 'Carol Jenkins'
       });
       this.searchFood('sugar');
       alert(`Searching food item: ${this.state.item}`);
@@ -89,7 +94,7 @@ class Main extends Component {
       brand: [],
       weekly: [],
       results: [],
-      log: false,
+      logged: false,
       showResults: true
     });
   };
@@ -136,6 +141,7 @@ class Main extends Component {
                   showResults={this.state.showResults}
                   handleFormSubmit={this.handleFormSubmit}
                   handleLog={this.handleLog}
+                  user={this.state.user}
                 />
               </div>
             </div>

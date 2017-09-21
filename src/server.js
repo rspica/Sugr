@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 //Require Schemas
 var User = require('./src/schema');
+var Food = require('../models/Food)');
 
 // Create Instance of Express
 var app = express();
@@ -45,17 +46,7 @@ db.once('open', err => {
 	}
 });
 
-// -------------------------------------------------
-
-app.get('/', function(req, res) {
-	res.send('Hello world');
+// Listener
+app.listen(PORT, function() {
+	console.log('App listening on PORT: ' + PORT);
 });
-
-// Any non API GET routes will be directed to our React App and handled by React Router
-app.get('*', function(req, res) {
-	res.sendFile(__dirname + '/public/index.html');
-});
-
-// App is listening on Port 3000
-app.listen(PORT);
-console.log(`Server running on Port ${PORT}`);
