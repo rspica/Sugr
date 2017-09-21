@@ -1,21 +1,23 @@
+
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyDG3y33Xmtfr58E4Tkc8D1_TVRSZP4-y8Y",
-    authDomain: "neighborhood-174902.firebaseapp.com",
-    databaseURL: "https://neighborhood-174902.firebaseio.com",
-    projectId: "neighborhood-174902",
-    storageBucket: "neighborhood-174902.appspot.com",
-    messagingSenderId: "901399671706"
+    apiKey: "AIzaSyBDRSkwxaE8lNtl-MAYW7Zu7ae4-vQZsQk",
+    authDomain: "sugr-4b7b5.firebaseapp.com",
+    databaseURL: "https://sugr-4b7b5.firebaseio.com",
+    projectId: "sugr-4b7b5",
+    storageBucket: "sugr-4b7b5.appspot.com",
+    messagingSenderId: "447320200784"
 };
 firebase.initializeApp(config);
 
-// Variable to reference the database
-var fullName;
-var email;
+
+// // Variable to reference the database
+// var fullName;
+// var email;
 
 // Get all elements from HTML file
-const textEmail = $("#textEmail");
-const textPassword = $("#textPassword");
+const textEmail = $("#email");
+const textPassword = $("#password");
 const btnLogin = $("#btnLogin");
 const btnSignUp = $("#btnSignUp");
 const btnLogout = $("#btnLogout");
@@ -35,6 +37,18 @@ btnLogin.click(function() {
     promise.catch(e => console.log(e.message));
 
 });
+
+
+// Login function to export
+// function btnLogin (){
+//     const auth = firebase.auth();
+
+//     // Sign In
+//     const promise = auth.signInWithEmailAndPassword(email, password);
+
+//     promise.catch(e => console.log(e.message));
+
+// }
 
 
 // Add signup event
@@ -70,3 +84,4 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         btnLogout.addClass('hide')
     }
 })
+

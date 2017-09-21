@@ -10,6 +10,8 @@ export default class Header extends Component {
   
   ClickSignIn = () => {
     this.props.handleClick("SignIn")
+    console.log("clicked")
+
   }
   
   ClickSignUp = () => {

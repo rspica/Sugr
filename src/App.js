@@ -38,6 +38,10 @@ export default class App extends Component {
         CurrentModal: clickVal
       })
     }
+
+    onSubmit = () => {
+      console.log("submitting")
+    }
   
     inputChange = (value, key ) => {
       this.setState({
@@ -55,12 +59,14 @@ export default class App extends Component {
           <Header
             handleClick = { this.handleClick } 
             CurrentModal = { this.state.CurrentModal }/>
-          <Logo bgImage = { './components/assets/images/orange.png' }/>
+          <Logo />
           <LpSearch />
           <CurrentModal 
             handleClick = { this.handleClick }
             inputChange = { this.inputChange }
+            onSumbit = {this.onSubmit}
             CurrentModal = { this.state.CurrentModal } />
+
 
         </div>
         </MuiThemeProvider>
