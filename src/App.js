@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios            from 'axios';
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import {fade}               from 'material-ui/src/styles/colorManipulator';
+// import {fade}        from 'material-ui/src/styles/colorManipulator';
 // import SugrTheme from './utils/uiTheme.js';
 import {teal900, 
         cyan700, cyan500, 
@@ -17,9 +17,9 @@ import CurrentModal from './components/Children/CurrentModal';
 import SearchDspl   from './components/Children/SearchDspl';
 import dashboard    from './dashboard';
 
-// import Api          from './utils/api'
+// import API          from './utils/API'
 
-// Material-ui custom themes
+// Material-ui custom themes =========================================================
 const muiTheme = getMuiTheme({
   fontFamily: 'Monserrat, sans-serif',
   palette: {
@@ -39,13 +39,13 @@ const muiTheme = getMuiTheme({
   {"width":"100%",},
 });
 
-//=============================================
+//================================================================================
 let Food = (props => {
   return (
     <div>Food item: {props.food.item_name}</div>
   )
 })
-//============================================
+//================================================================================
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -69,7 +69,7 @@ export default class App extends Component {
     this.closeModal = this.closeModal.bind(this)
   }
 
-// modal activation sign-in / signup / no display
+// modal activation sign-in / signup / no display =============================
   handleClick = (clickVal) => {
     console.log(this)
     this.setState({
@@ -81,7 +81,7 @@ export default class App extends Component {
     this.handleClick("null");
   }
 
-// input value state change for all input fields 
+// input value state change for all input fields ==============================
     inputChange = (value, key ) => {
       this.setState({
         [key]: value
@@ -89,7 +89,7 @@ export default class App extends Component {
       console.log('value: ',value, 'key: ' ,key)
     };
 
-// landing page api call for search
+// landing page api call for searchbar on landing page and dashboard =========
 clickSearch = () => {
   const BASEURL = 'https://api.nutritionix.com/v1_1/search/';
   const APIKEY = '5234f7f1&appKey=c6da7cb3302759d1e20f3793daa4b711';
@@ -117,6 +117,7 @@ clickSearch = () => {
     })
   }
 
+  // =====================================================================
     render() {
      
       console.log('in render showing overall state: ',this.state)

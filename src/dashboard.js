@@ -8,8 +8,8 @@ import DboardHead  from './components/Children/DboardHead';
 import SearchBar   from './components/Children/SearchBar';
 
 import UserProfile from './components/Children/UserProfile';
-import Graph from '../src/funponents/Graph';
-import Main from '../src/funponents/Main';
+// import Graph from '../src/funponents/Graph';
+// import Main from '../src/funponents/Main';
 
 // Material-ui custom themes
 const muiTheme = getMuiTheme({
