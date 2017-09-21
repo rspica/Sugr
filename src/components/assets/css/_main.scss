@@ -3,15 +3,24 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     font: $fontBody;
-    background-color: rgb(238,238,238)
+    background-color: rgb(238,238,238);
 }
 
 .headWrapper {
-    padding: 10px 50px 10px;
+    padding: 10px 20px 10px;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     background-color: white;
+}
+
+.headWrapperMain {
+    @extend .headWrapper;
+    justify-content: flex-end;
+}
+
+.headWrapperDashBrd {
+    @extend .headWrapper;
+    justify-content: space-between;
 }
 
 .row {
@@ -20,91 +29,75 @@ body {
     box-sizing: border-box;
 }
 
-.background {
-    background-color: rgba( $modalBG, .7);
-    padding: 20px;
+.searchWrapper {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 120px;
 }
 
-.col-3 {
-    margin-right: 10px;
-
-    &:last-child {
-        margin-right: 0;
-    }
-}
-
-.flexSize {
-    flex: 3;
-}
-
-.flexSize1 {
-    flex: 1;
-}
 .bgImage {
+    width: 750px;
+    margin: 0 auto;
     position: absolute;
-    left: 0;
     z-index: -1;
+    top: 75px;
+    left:50%;
+    transform: translatex(-50%);
+}
+
+.logo {
+    text-align: center;
+    font: $fontLogo;
+    margin-bottom: 25px;
+}
+
+.searchBar {
+    display: flex;
+    height: 45px;
+    border: 1px solid $secondaryColor;
+    border-radius: 5px; 
 }
 
 /*  universal input field styles on all forms */
 
 input {
     @extend button;
-    border-bottom: 1px solid $primaryColor;
+    width: 100%;
+    padding-left: 20px; 
     color: $primaryColor !important;
 
     &::placeholder {
         font: $formFont;
-        color: $secondaryColor;
+        font-style: italic;
+        color: $tertiaryColor;
     }
 
-/* -- adds input field name to top of field test -- */
-    &:placeholder-shown+label {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-
-    &:focus {
-        outline: none;
-        border-color: #fff;
+    &:placeholder-shown {
+        border: 2px solid $secondaryColor;
     }
 }
-
- label {
-    font: $formFont;
-    color: $secondaryColor;
-    background-color: $modalBG;
-    border: 1px solid $primaryColor;
-    position: absolute;
-    top: 0;
-    opacity: 1;
-    padding: 0 5px;
-    transition: all 0.35s;
-    transform: translateY(calc(-50% - 1px));
-}
-
-
 
 /*. Unversal button style for all pages and forms*/
 
 button {
     box-sizing: border-box;
-    background-color: transparent;
-    border-style: none;
-    outline: none;
+    padding-left: 5px;
+    padding-right: 10px;
     font: $formFont;
     line-height: 1.7;
     color: #fff;
     display: block;
+    background-color: transparent;
+    border-style: none;
+    outline: none;
     position: relative;
     overflow: hidden;
-    width: 100%;
     text-align: left;
     cursor: pointer;
-}
 
-button:hover {
-    color: $secondaryColor;
+    &:hover {
+      color: $secondaryColor;
+    }
 }
 
 .navLabel button {
@@ -113,67 +106,27 @@ button:hover {
     height: 40px;
 
     &:hover {
-        color: $secondaryColor;
+        color: $tertiaryColor;
     }
 }
 
-.btnLabel {
-    font: $formFont;
-}
+.navLabel {
 
-.Btn {
-    box-sizing: border-box;
-    border: 1px solid $secondaryColor;
-    background-color: $secondaryColor;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
+    li { padding-top: 7px; }
 
+    a {
+        font: $formFont;
+        color: $primaryColor;
+        height: 40px;
 
-/*  this hides and shows login status  */
-
-.logContainer {
-    display: none;
+        &:hover {
+            color: $tertiaryColor;
+        }
+    }
 }
 
 .display {
     display: flex;
-}
-
-
-/* icons for hover states */
-
-.icon {
-    position: absolute;
-    left: 50%;
-    top: -30px;
-    width: 20px;
-    height: 17px;
-    transform: translateX(-50%);
-    transition: all .25s cubic-bezier(0.31, -0.105, 0.43, 1.4);
-}
-
-.iconDown {
-    z-index: 10;
-    top: 0px;
-}
-
-.titleText {
-    font-size: 2.3em;
-    line-height: 1.25;
-    color: $secondaryColor;
-    margin-bottom: 25px;
-}
-
-.logo {
-    text-align: center;
-    margin-bottom: 25px;
-    font: $fontLogo;
-}
-
-.searchWrapper {
-    width: 85%;
-    margin: 0 auto;
 }
 
 .btnSearch {
@@ -183,27 +136,11 @@ button:hover {
 
 .embed-submit-field {
   position: relative;
-  
-  input {
-    width: 100%;
-    padding: 15px;
-  }
 
   button {
     position: absolute;
     right: 10px;
     top: 7px;
-    
-    //Only styling from here, you can discard this
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    
-    border: none;
-    background: #ededed;
-    border-radius: 3px;
-    padding: 10px;
-    
-    transition: all .2s;
     
     &:hover {
       background-color: #37C88D;
@@ -212,5 +149,3 @@ button:hover {
     }
   }
 }
-
-@import 'responsive';

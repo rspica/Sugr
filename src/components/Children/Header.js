@@ -10,9 +10,14 @@ export default class Header extends Component {
   
   ClickSignIn = () => {
     this.props.handleClick("SignIn")
+<<<<<<< HEAD
     console.log("clicked")
 
   }
+=======
+    }
+  
+>>>>>>> ce63d8a297e9710e1646af6c93e70f4becfa8212
   
   ClickSignUp = () => {
     this.props.handleClick("SignUp")
@@ -22,19 +27,19 @@ export default class Header extends Component {
     console.log("header prop ",this.props)
     return (
 
-   <div className="headWrapper"> 
-      <div className="navContainer row">
-        <div className="navLabel signInBtn">
+   <div className="headWrapperMain"> 
+      <div className="row">
+        <div className="navLabel">
           <button 
             onClick = { this.clickSignIn } //currentModal = SignIn
-            id="btn-Login btnLogin">
+            >
           <h4> Log in </h4></button>
         </div>
 
-        <div className="navLabel signUpBtn">
+        <div className="navLabel">
           <button 
-            onClick = { this.clickSignUp } //currentModal = SignUp
-            id="btn-SignUp btnSignUp">
+            onClick = { this.clickSignUp } //currentModal = SignUp 
+            >
           <h4> Sign up </h4></button>
         </div>
       </div>

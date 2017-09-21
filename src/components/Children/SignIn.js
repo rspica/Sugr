@@ -1,91 +1,86 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
+const modalStyle = {
+  inputStyle: {
+    width: '100%'
+  },
+
+  btnStyle: {
+    labelPosition: 'after',
+    backgroundColor: 'tomato',
+
+    textTransform: 'lowercase',
+    height: 60,
+    width: '100%'
+  }
+};
 
 
 export default class SignIn extends Component {
   constructor(props) {
     super(props);
-
-    this.closeSignIn = this.closeSignIn.bind(this);
-  }
-  closeSignIn = () => {
-    console.log('clicking close in signIn')
-    this.props.handleClick("null");
   }
 
   render() {
-    console.log('signIn: ',this.props.CurrentModal)
-    console.log("signIn prop ",this.props)
+    console.log('signIn: ', this.props.CurrentModal);
+    console.log('signIn prop ', this.props);
+    console.log('from sign in this.closeModal: ', this.props.closeModal);
 
     return (
+      <div className="modalForm">
+        <div className="modalContent">
+          <span onClick={this.props.closeModal} className="xClose">
+            &times;
+          </span>
 
-        <div className="signInModal">
-          <div className="modalForm">
-
-            <div className="modalContent">
-              <span 
-                onClick = { this.closeSignIn }
-                className = "xClose">&times;</span>
-            
-
-              <div className="welcome">
-                <h1>Welcome to Sugr</h1>
-              </div>
-
-              <div className="errHandle">
-                <span id="error"></span>
-              </div>
-
-              <div className="inputWrapper">
-              <form>
-        <TextField 
-          name="email"
-          hintText="email"
-          floatingLabelText="Email"
-          onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')} }
-        />
-        </form>
-                <div className="inputStyle">
-                  <input 
-                    id="email" 
-                    type="email" 
-                    placeholder="Email address" 
-                    required 
-                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')} }
-                    />
-                </div>
-
-                <div className="inputStyle">
-                  <input 
-                  id="password" 
-                  type="password" 
-                  placeholder="Password" 
-                  required 
-                  onChange={ (ev) => {this.props.inputChange(ev.currentTarget.value, 'password')} }
-                  />
-                </div>
-              </div>
-
-              <div className="Btn submit-LogIn modalBtn boxStyle">
-                <button 
-                  id="btnLogin"
-                  >
-                <h3 className="navLabel">Log in</h3></button>
-              </div>
-
-              <div className="dividerOr">or</div>
-
-              <div className="Btn btn-SignUp modalBtn boxStyle">
-                <button id="btnSignUp">
-                <h3 className="navLabel">Sign me up</h3></button>
-              </div>
-            </div>
+          <div className="welcome">
+            <h1>Welcome to Sugr</h1>
           </div>
+
+          <div className="errHandle">
+            <span id="error" />
+          </div>
+
+          <div className="inputWrapper">
+            <form>
+              <TextField
+                name="email"
+                hintText="email"
+                floatingLabelText="Email"
+                style={modalStyle.inputStyle}
+                onChange={ev => {
+                  this.props.inputChange(ev.currentTarget.value, 'email');
+                }}
+              />
+
+              <TextField
+                name="password"
+                hintText="password"
+                floatingLabelText="Password"
+                style={modalStyle.inputStyle}
+                onChange={ev => {
+                  this.props.inputChange(ev.currentTarget.value, 'password');
+                }}
+              />
+            </form>
+          </div>
+
+          <FlatButton
+            label="Sign In"
+            style={modalStyle.btnStyle}
+            containerElement={<Link to="/Dashboard" />}
+            linkButton={true}
+          />
+
+          <div className="dividerOr">or</div>
+
+          <FlatButton label="Sign me up" style={modalStyle.btnStyle} />
         </div>
+      </div>
     );
   }
 }
-

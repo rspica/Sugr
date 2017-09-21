@@ -6,20 +6,22 @@ import SignUp2 from './SignUp2';
 export default class CurrentModal extends Component {
 
     render() {
-        console.log('in Current Conditions');
 
         if (this.props.CurrentModal === 'SignIn') {
             console.log('ModalName: ',this.props.CurrentModal)
-            console.log('currentModal clickhandle: ',this.handleClick)
+            console.log('currentModal clickhandle: ',this.props.handleClick)
+            console.log('currentModal closeModal: ',this.props.closeModal)
             return <SignIn 
                         CurrentModal = { this.props.CurrentModal } 
-                        handleClick =  { this.props.handleClick }
-                        inputChange =  { this.props.inputChange } />;
+                        handleClick  = { this.props.handleClick }
+                        inputChange  = { this.props.inputChange }
+                        closeModal   = { this.props.closeModal } />;
         } else if (this.props.CurrentModal === 'SignUp') {
             return <SignUp2 
                         CurrentModal = { this.props.CurrentModal } 
                         handleClick =  { this.props.handleClick }
-                        inputChange =  { this.props.inputChange } />;
+                        inputChange =  { this.props.inputChange }
+                        closeModal   = { this.props.closeModal } />;
         } else {
             return null;
         }

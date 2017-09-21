@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
+<<<<<<< HEAD
+=======
+const modalStyle = {
+  inputStyle: {
+    width: '100%',
+  },
+
+  btnStyle: {
+  labelPosition: 'after',
+  backgroundColor: 'tomato',
+  height: 60,
+  width: '100%',
+  }
+};
+>>>>>>> ce63d8a297e9710e1646af6c93e70f4becfa8212
 
 export default class Form extends Component {
   constructor(props) {
@@ -12,6 +27,10 @@ export default class Form extends Component {
   closeSignUp = () => {
     console.log('clicking close in signIn')
     this.props.handleClick("null");
+  }
+
+  ClickSignUp = () => {
+    this.props.handleClick("SignUp")
   }
 
   state = {
@@ -27,41 +46,38 @@ export default class Form extends Component {
     confPassErr:''
   };
 
-  change = e => {
-    this.props.onChange({ [e.target.name]: e.target.value });
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
+  // change = e => {
+  //   this.props.onChange({ [e.target.name]: e.target.value });
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
-  onSubmit = e => {
-    e.preventDefault();
-    // this.props.onSubmit(this.state);
-    this.setState({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
-    this.props.onChange({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
-  };
+  // onSubmit = e => {
+  //   e.preventDefault();
+  //   // this.props.onSubmit(this.state);
+  //   this.setState({
+  //     firstName: "",
+  //     lastName: "",
+  //     username: "",
+  //     email: "",
+  //     password: ""
+  //   });
+  //   this.props.onChange({
+  //     User.firstName: "",
+  //     lastName: "",
+  //     username: "",
+  //     email: "",
+  //     password: ""
+  //   });
+  // };
 
-  ClickSignUp = () => {
-    this.props.handleClick("SignUp")
-  }
+
 
   render() {
     console.log('signUp: ',this.props.CurrentModal)
 
     return (
-        <div className="signUpModal">
             <div className="modalForm">
               <div className="modalContent">
                 <span
@@ -78,57 +94,67 @@ export default class Form extends Component {
                     name="fullName"
                     hintText="Full name"
                     floatingLabelText="Full name"
-                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'fullName')} }
                     errorText={this.state.fullNameErr}
+                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'fullName')} }
+                    style={ modalStyle.inputStyle }
                   /><br />
 
                   <TextField
                     name="gender"
                     hintText="Gender"
                     floatingLabelText="Gender"
-                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'gender')} }
                     errorText={this.state.genderErr}
+                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'gender')} }
+                    style={ modalStyle.inputStyle }
                   /><br />
 
                   <TextField
                     name="email"
                     hintText="Email"
                     floatingLabelText="Email"
-                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')} }
                     errorText={this.state.emailErr}
+                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')} }
+                    style={ modalStyle.inputStyle }
                   /><br />
 
                   <TextField
                     name="profilePict"
                     hintText="Profile picture link"
                     floatingLabelText="Profile picture"
-                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'profilePict')} }
                     errorText={this.state.profilePictErr}
+                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'profilePict')} }
+                    style={ modalStyle.inputStyle }
                   /><br />
 
                   <TextField
                     name="password"
                     hintText="Password"
                     floatingLabelText="Password"
-                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'password')} }
                     errorText={this.state.passwordErr}
                     type="password"
+                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'Password')} }
+                    style={ modalStyle.inputStyle }
                   /><br />
 
                   <TextField
                     name="confPass"
                     hintText="Confirm Password"
                     floatingLabelText="Confirm password"
-                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'confPass')} }
                     errorText={this.state.confPassErr}
                     type="password"
+                    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'confPass')} }
+                    style={ modalStyle.inputStyle }
                   /> <br />
 
-                  <RaisedButton label="Submit" onClick = { (e) => this.onSubmit(e) } primary />
+                  <RaisedButton 
+                    label="Submit" 
+                    onClick = { (e) => this.onSubmit(e) } 
+                    primary 
+                    style={ modalStyle.btnStyle }
+                    />
                 </form>
               </div>
             </div>
-          </div>
          );
         }
       };
