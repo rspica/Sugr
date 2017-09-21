@@ -4,14 +4,13 @@ const Form = props => (
   <div className="form-group">
     <h3 style={{ color: '#fd746a' }}>Enter A Search:</h3>
 
-    <label htmlFor="search">Search:</label>
     <form className="form">
       <input onChange={props.handleInputChange} value={props.item} name="item" type="text" placeholder="Food Item" />
       <button onClick={props.handleFormSubmit} id="submitter" style={{ color: '#fd746a' }}>
-        Submit
+        Show Me
       </button>
     </form>
-    <h3 style={{ color: '#fd746a' }}>Then select a brand name below:</h3>
+    <h3 style={{ color: '#fd746a', marginTop: '40px' }}>Then select a brand name below:</h3>
   </div>
 );
 
