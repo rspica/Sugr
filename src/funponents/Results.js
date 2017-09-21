@@ -16,14 +16,14 @@ const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) =>
         event.preventDefault();
         let d = new Date();
         let date = '';
-        date += d.getMonth() + 1 + '_';
-        date += d.getDate() + '_';
+        date += d.getMonth() + 1 + '/';
+        date += d.getDate() + '/';
         date += d.getFullYear();
 
         user = 'user';
 
         API.postSaved(user, item_name, brand_name, nf_sugars, date, true);
-        alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams' + ' on ' + date);
+        alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams on ' + date);
       };
 
       return (

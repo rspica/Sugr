@@ -9,8 +9,8 @@ const Average = ({ results, handleFormSubmit, showResults }) => (
             const { nf_sugars } = result.fields;
 
             return (
-                <div key="10" className="panel">
-                    <h4>Your average daily sugar intake is: </h4>
+                <div key="20" className="panel">
+                    <h4 style={{ color: '#fd746a' }}>Your average daily sugar intake is: </h4>
                     <div
                         className="panel-body"
                         data-value={nf_sugars}
