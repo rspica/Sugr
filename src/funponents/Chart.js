@@ -8,7 +8,7 @@ class Chart extends Component {
 		return (
 			<div>
 				<img
-					src="http://chart.apis.google.com/chart?chs=300x200&amp;cht=bvg&amp;chtt=Live Preview&amp;chd=s:OUSYft,cU9UYf&amp;chco=ff69b4,98fb98&amp;chdl=sgr|prt&amp;chxl=0:|jan|feb|mar|apr|may|jun|&amp;chxt=x"
+					src="http://chart.apis.google.com/chart?chs=200x150&cht=bvs&chtt=Live Preview&chd=s:Zkgr2H,Wkv92k&chco=fd8075,92caf7&chdl=protein|sugar&chxl=0:|mon|tues|wed|thur|fri|sat|sun|&chxt=x"
 					alt="chart"
 				/>
 			</div>
