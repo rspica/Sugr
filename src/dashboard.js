@@ -6,7 +6,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DboardHead from './components/Children/DboardHead';
 import UserProfile from './components/Children/UserProfile';
 
-import Graph from '../src/funponents/Graph';
 import Main from '../src/funponents/Main';
 
 // Material-ui custom themes

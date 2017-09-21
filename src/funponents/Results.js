@@ -7,7 +7,7 @@ import API from './API.js';
 //I think I have to break out the handleLog function and do it on this page
 //child element needs to pass states an create an object to send to mongo
 
-const Results = ({ results, handleFormSubmit, showResults, handleLog }) => (
+const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) => (
   <ul className="list-group search-results" style={{ borderStyle: showResults ? 'solid' : 'none' }}>
     {results.map(result => {
       const { item_name, brand_name, nf_sugars } = result.fields;
@@ -20,7 +20,9 @@ const Results = ({ results, handleFormSubmit, showResults, handleLog }) => (
         date += d.getDate() + '_';
         date += d.getFullYear();
 
-        API.postSaved(item_name, brand_name, nf_sugars, date);
+        user = 'user';
+
+        API.postSaved(user, item_name, brand_name, nf_sugars, date, true);
         alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams' + ' on ' + date);
       };
 
