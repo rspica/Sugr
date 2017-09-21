@@ -93,7 +93,9 @@ body {
 
 .searchBar {
   display: flex;
-  height: 45px; }
+  height: 45px;
+  border: 1px solid #90CAF9;
+  border-radius: 5px; }
 
 /*  universal input field styles on all forms */
 input {

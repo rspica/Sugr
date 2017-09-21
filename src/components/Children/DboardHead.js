@@ -17,13 +17,6 @@ const header = {
     },
 }
 
-const WrappedLink = () => {
-    return (
-      <button>
-        <Link  /><h4> Log Out </h4>
-      </button>
-    )
-  }
 
 export default class DboardHead extends Component {
   constructor(props) {
@@ -49,26 +42,16 @@ export default class DboardHead extends Component {
     >
       Image Avatar with username
     </ListItem>
-        <div className="dashLogo">
-            <h1>Sugr</h1>
-        </div>
+      <div className="dashLogo">
+          <h1>Sugr</h1>
+      </div>
         
-    <div className="row">
-        <div className="navLabel">
-            <WrappedLink to="/"/>
-        </div>
-
+      <div className="row"> 
         <ul className="navLabel">
           <li><Link to="/">Log Out</Link></li>
         </ul>
-
-        <FlatButton 
-            label="Sign In" 
-            style={ header.button }
-            containerElement={<Link to="/" />} 
-            linkButton={true} />
-   </div>
-   </div>
+      </div>
+  </div>
 
     );
   }
