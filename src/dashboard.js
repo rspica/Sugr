@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import DboardHead from './components/Children/DboardHead';
-import UserProfile from './components/Children/UserProfile';
 
+import DboardHead  from './components/Children/DboardHead';
+import SearchBar   from './components/Children/SearchBar';
+
+import UserProfile from './components/Children/UserProfile';
 import Graph from '../src/funponents/Graph';
 import Main from '../src/funponents/Main';
 
@@ -16,13 +18,20 @@ const muiTheme = getMuiTheme({
 
 export default class Dashboard extends Component {
   render() {
+    console.log(' this.props.backside inputchange: ',  this.props )
     return (
       <MuiThemeProvider>
-        <div>
-          <DboardHead />
-          <UserProfile />
-          <Main />
-        </div>
+
+      <div>
+      	
+      	<DboardHead />
+        <SearchBar 
+          clickSearch = { this.props.clickSearch }
+          inputChange = { this.inputChange } />
+        <UserProfile />
+
+      	
+      </div>
       </MuiThemeProvider>
     );
   }

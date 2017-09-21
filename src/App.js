@@ -15,7 +15,8 @@ import Logo         from './components/Children/Logo';
 import LpSearch     from './components/Children/LpSearch';
 import CurrentModal from './components/Children/CurrentModal';
 import SearchDspl   from './components/Children/SearchDspl';
-import routes from './components/routes';
+import dashboard    from './dashboard';
+
 // import Api          from './utils/api'
 
 // Material-ui custom themes
@@ -58,7 +59,6 @@ export default class App extends Component {
       Search: {
         SearchItem:'',
         foodType: [],
-        foodName: [],
       },
       CurrentModal: null,
     };
@@ -100,27 +100,26 @@ clickSearch = () => {
     .then(resp => {
       this.setState({
         foodType: resp.data.hits,
-        foodName: resp.data.hits[0].fields.item_name
       })  
     console.log('food by name response: ',resp.data.hits); 
-    this.mapAllFood();
+    this.mapAllFood(this.state.foodType);
   })   
 } 
 
-  mapAllFood = () => {
-    this.state.foodType.map(food => {
-      console.log(food.fields.item_name)
+  mapAllFood = (foods) => {
+    foods.map(food => {
+      console.log("Item Name: ",food.fields.item_name)
+      console.log("Brand Name: ",food.fields.brand_name)
+      console.log("sugars: ",food.fields.nf_sugars+"g")
+      console.log("serving size: ",food.fields.nf_serving_size_qty)
+      console.log("id: ",food._id)
+      console.log('****************************')
     })
   }
 
-
-
     render() {
-      
+     
       console.log('in render showing overall state: ',this.state)
-      console.log('in render foodtypes result response: ',this.state.Search.foodType);
-      console.log('mapping response array: ', 'xxx')
-      console.log('in render foodnames result response: ',this.state.Search.foodName);
       return (
         <MuiThemeProvider muiTheme={muiTheme}>
         <div>
@@ -135,11 +134,8 @@ clickSearch = () => {
           <LpSearch 
             clickSearch = { this.clickSearch }
             inputChange = { this.inputChange } />
-          
-        <div>
-          <h1>search results</h1>
-          <div>food:{} </div>
-        </div>
+          <SearchDspl
+            foodType = { this.state.foodType } />
         </div>
         </MuiThemeProvider>
       );
