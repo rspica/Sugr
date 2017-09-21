@@ -59,14 +59,17 @@ export default class App extends Component {
       Search: {
         SearchItem:'',
         foodType: [],
+        showResults: false,
       },
       CurrentModal: null,
+
     };
       
     this.inputChange = this.inputChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.clickSearch = this.clickSearch.bind(this);
-    this.closeModal = this.closeModal.bind(this)
+    this.closeModal = this.closeModal.bind(this);
+    this.onShowResult = this.onShowResult.bind(this);
   }
 
 // modal activation sign-in / signup / no display =============================
@@ -103,7 +106,10 @@ clickSearch = () => {
       })  
     console.log('food by name response: ',resp.data.hits); 
     this.mapAllFood(this.state.foodType);
-  })   
+    this.setState({ showResults: true });
+    console.log("this is show state: ",this.state.showResults)
+    this.onShowResult();
+  }) 
 } 
 
   mapAllFood = (foods) => {
@@ -115,6 +121,13 @@ clickSearch = () => {
       console.log("id: ",food._id)
       console.log('****************************')
     })
+  }
+
+  // lshows results from search on landing page and/or dashboard =========
+  onShowResult = () => {
+    this.setState({
+      top: -10,
+    });
   }
 
   // =====================================================================
@@ -135,8 +148,13 @@ clickSearch = () => {
           <LpSearch 
             clickSearch = { this.clickSearch }
             inputChange = { this.inputChange } />
-          <SearchDspl
-            foodType = { this.state.foodType } />
+            <div className="resultsWrapper">
+            { this.state.showResults ? ( 
+              <SearchDspl
+                top = { this.state.top }
+                foodType = { this.state.foodType } /> ) : (null )}
+            </div>
+
         </div>
         </MuiThemeProvider>
       );
