@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import './Main.js';
-import Button from './Button.js';
 import API from './API.js';
 //connect all this to SUBMIT button/page
 
@@ -15,25 +14,35 @@ const Results = ({ results, handleFormSubmit, showResults, handleLog }) => (
 
       handleLog = event => {
         event.preventDefault();
-        API.postSaved(item_name, brand_name, nf_sugars);
-        alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams');
+        let d = new Date();
+        let date = '';
+        date += d.getMonth() + 1 + '_';
+        date += d.getDate() + '_';
+        date += d.getFullYear();
+
+        API.postSaved(item_name, brand_name, nf_sugars, date);
+        alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams' + ' on ' + date);
       };
 
       return (
         <li key={result._id} className="list-group-item" style={{ display: showResults ? 'block' : 'none' }}>
           <h5 className="contains">{item_name}</h5>
 
-          <Button
-            className="btn btn-primary"
-            id="log"
-            handleLog={handleLog}
-            item={item_name}
-            brand={brand_name}
-            sugar={nf_sugars}
-          />
-
           <h5>{brand_name}</h5>
           <h5>{nf_sugars}g sugar</h5>
+          <button
+            onClick={handleLog}
+            style={{
+              color: 'black',
+              display: 'inline',
+              float: 'right',
+              border: 'solid lightgrey',
+              marginTop: '-40px',
+              paddingLeft: '4px'
+            }}
+          >
+            log
+          </button>
         </li>
       );
     })}
