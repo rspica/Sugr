@@ -2,13 +2,11 @@ import React from 'react';
 import './App.css';
 import './Main.js';
 import API from './API.js';
-//connect all this to SUBMIT button/page
-
-//I think I have to break out the handleLog function and do it on this page
-//child element needs to pass states an create an object to send to mongo
 
 const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) => (
   <ul className="list-group search-results" style={{ borderStyle: showResults ? 'solid' : 'none' }}>
+    {/*.........Destructuring assignment draws out just what's needed from results array http://exploringjs.com/es6/ch_destructuring.html#sec_overview-destructuring....*/}
+
     {results.map(result => {
       const { item_name, brand_name, nf_sugars } = result.fields;
 
@@ -22,9 +20,13 @@ const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) =>
 
         user = 'user';
 
-        API.postSaved(user, item_name, brand_name, nf_sugars, date, true);
+        API.postSaved(brand_name, date, item_name, true, nf_sugars, user);
         alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams on ' + date);
       };
+
+      {
+        /*...Map items iterating through results & at each pass assigning a new key by grabbing a unique identifier like _id from the results object and rendering a list item*/
+      }
 
       return (
         <li key={result._id} className="list-group-item" style={{ display: showResults ? 'block' : 'none' }}>
