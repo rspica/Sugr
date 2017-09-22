@@ -9,8 +9,6 @@ import Graph from './Graph.js';
 import API from './API.js';
 import { Modal } from 'react-bootstrap';
 
-
-{/**/}
 class Main extends Component {
   state = {
     //this is the search term though I use item later differently. Unwise choice but in too deep.
@@ -23,15 +21,13 @@ class Main extends Component {
     brand: '',
     //array of results from search, parsed later on
     results: [],
-    //toggle 'logged' off 
+    //toggle 'logged' off
     logged: false,
     //toggled off until needed in conditional render of search results. This function lives later on the results page but the conditions under which it would be revealed are on this, the <Main />, page
     showResults: false,
     //Carol Jenkins is a name everyone universally happens to invoke during Improv games and sketch comedy
     user: 'Carol Jenkins'
   };
-
-  {/**/}
 
   componentDidMount() {
     this.searchFood();
@@ -51,13 +47,13 @@ class Main extends Component {
       })
       .catch(err => console.log(err));
   };
-  
+
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
 
-//============== Updating the input's state
+    //============== Updating the input's state
     this.setState({
       [name]: value,
       showResults: false
@@ -65,24 +61,24 @@ class Main extends Component {
   };
 
   handleFormSubmit = event => {
-//===========Preventing the default behavior of the form submit (which is to refresh the page)
+    //===========Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-//===========validation checks inside the event listener===========================
-//probably don't need to reset state so much and so literally but this all helped me "think" through the app
+    //===========validation checks inside the event listener===========================
+    //probably don't need to reset state so much and so literally but this all helped me "think" through the app
     if (this.state.item === '') {
       alert('No food item was entered');
       this.searchFood();
       this.setState({
-    item: '',
-    food: '',
-    sugar: 0,
-    brand: '',
-    results: [],
-    logged: false,
-    showResults: false,
-    user: 'Carol Jenkins'
+        item: '',
+        food: '',
+        sugar: 0,
+        brand: '',
+        results: [],
+        logged: false,
+        showResults: false,
+        user: 'Carol Jenkins'
       });
-//==================Important that showResults toggles to true. Show results is not on this compoent but the command to do so IS, so the call to it is being passed here========================================
+      //==================Important that showResults toggles to true. Show results is not on this compoent but the command to do so IS, so the call to it is being passed here========================================
     } else {
       this.setState({
         food: [],
@@ -97,10 +93,9 @@ class Main extends Component {
       this.searchFood('sugar');
       alert(`Searching food item: ${this.state.item}`);
     }
+  };
 
-
-{/*<Form /> is where search input happens on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
-
+  /*...Form is where search input happens on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/
 
   render() {
     return (
@@ -108,7 +103,6 @@ class Main extends Component {
         <Modal />
         <div className="row">
           <div className="col-md-4" id="form">
-         
             <Form
               value={this.state.value}
               handleInputChange={this.handleInputChange}
@@ -116,7 +110,7 @@ class Main extends Component {
               item={this.state.item}
             />
           </div>
- {/**<Average /> is where a lot of Math happens upon conditional render. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
+          {/**<Average /> is where a lot of Math happens upon conditional render. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
           <div className="col-md-4" id="average">
             <Average
               results={this.state.results}
@@ -124,15 +118,14 @@ class Main extends Component {
               handleFormSubmit={this.handleFormSubmit}
             />
           </div>
-{/**<Charts /> is where charts render on the Dashboard. May someday be an API call. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
+          {/**<Charts /> is where charts render on the Dashboard. May someday be an API call. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
           <div className="col-md-4" id="charts">
             <Chart results={this.state.results} showResults={this.state.showResults} />
           </div>
         </div>
 
         <div className="row">
-
- {/**<Results/> is where results render on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
+          {/**<Results/> is where results render on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
           <div className="col-md-4" id="resultWell">
             <div
               className="panel"
@@ -142,9 +135,8 @@ class Main extends Component {
                 borderColor: this.state.showResults ? 'lightgrey' : 'transparent'
               }}
             >
-
               <div className="panel-body">
-              {/*user name can be passed here to become part of database object, associating a logged food with a user*/}
+                {/*user name can be passed here to become part of database object, associating a logged food with a user*/}
                 <Results
                   results={this.state.results}
                   showResults={this.state.showResults}
@@ -154,7 +146,7 @@ class Main extends Component {
               </div>
             </div>
           </div>
-        
+
           <div
             className="col-md-4"
             id="graphWell"
@@ -162,14 +154,13 @@ class Main extends Component {
               marginTop: this.state.showResults ? '4px' : '-80px'
             }}
           >
-        
             <Graph
               results={this.state.results}
               showResults={this.state.showResults}
               handleFormSubmit={this.handleFormSubmit}
             />
           </div>
-        
+
           <div
             className="col-md-4"
             id="savedWell"
@@ -177,7 +168,7 @@ class Main extends Component {
               marginTop: this.state.showResults ? '-70px' : '-10px'
             }}
           >
-          {/*dunno yet what's happening here*/}
+            {/*dunno yet what's happening here*/}
             <Saved
               value={this.state.value}
               handleInputChange={this.handleInputChange}
