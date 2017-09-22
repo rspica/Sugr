@@ -6,6 +6,7 @@ import './Main.js';
 const Average = ({ results, handleFormSubmit, showResults }) => (
     <div className="well" id="averageWell">
         {results.map(result => {
+            /******just parsing sugars for these purposes. Ideally would be getting numbers from an axios call to the database---geting user's week's worth of logged sugar grams************/
             const { nf_sugars } = result.fields;
 
             return (
@@ -16,6 +17,7 @@ const Average = ({ results, handleFormSubmit, showResults }) => (
                         data-value={nf_sugars}
                         style={{ display: showResults ? 'block' : 'none' }}
                     >
+                        {/*Justa buncha Math. Not tied to any of these calculations, just figuring out how to pass meaningful values along. There will eventtually be numbersfrom the db, the backend. Right now, to fake dynamic numbers, I am grabbing this from the front end--the API result at a predetermined index: result[9]*/}
                         <h5>{nf_sugars * 35 / 7} Sugar grams consumed per day </h5>
                         <h5>{Math.floor(nf_sugars * 35 / 7 - 25)} Grams more than the daily allowance </h5>
                         <h5>Total of {(nf_sugars * 35 / 7 - 25) * 365 * 4} pure sugar calories per year,</h5>
