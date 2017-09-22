@@ -23,11 +23,11 @@ class Main extends Component {
     brand: '',
     //array of results from search, parsed later on
     results: [],
-    //toggle 'logged' off so
+    //toggle 'logged' off 
     logged: false,
-    //toggled off untill needed in conditional render of search results. This function lives later on the results page but the conditions under which it would be revealed are on this, the <Main /> page
+    //toggled off until needed in conditional render of search results. This function lives later on the results page but the conditions under which it would be revealed are on this, the <Main />, page
     showResults: false,
-    //Carol Jenkins is a name everyone universally happens to during Improv games and sketch comedy
+    //Carol Jenkins is a name everyone universally happens to invoke during Improv games and sketch comedy
     user: 'Carol Jenkins'
   };
 
@@ -35,11 +35,10 @@ class Main extends Component {
 
   componentDidMount() {
     this.searchFood();
+    //Below are self-reminders to make some functions based on userdata, like:
     // API.searchUser(userdata[userdata.length-1].user);
     // this.setState({ user: res.data.user });
   }
-
-  {/**/}
 
   searchFood = () => {
     // test query string  ==== https://api.nutritionix.com/v1_1/search/apple?results=0:20&fields=item_name,brand_name,nf_sugars&appId=5234f7f1&appKey=40a5d6ab8411eb1e9d9f23f601944842
@@ -52,9 +51,7 @@ class Main extends Component {
       })
       .catch(err => console.log(err));
   };
-
   
-
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
@@ -67,13 +64,10 @@ class Main extends Component {
     });
   };
 
-
-
-
   handleFormSubmit = event => {
 //===========Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-//===========validation checks inside the event istener===========================
+//===========validation checks inside the event listener===========================
 //probably don't need to reset state so much and so literally but this all helped me "think" through the app
     if (this.state.item === '') {
       alert('No food item was entered');
@@ -150,7 +144,7 @@ class Main extends Component {
             >
 
               <div className="panel-body">
-              {/**/}
+              {/*user name can be passed here to become part of database object, associating a logged food with a user*/}
                 <Results
                   results={this.state.results}
                   showResults={this.state.showResults}
@@ -160,7 +154,7 @@ class Main extends Component {
               </div>
             </div>
           </div>
-          {/**/}
+        
           <div
             className="col-md-4"
             id="graphWell"
@@ -168,14 +162,14 @@ class Main extends Component {
               marginTop: this.state.showResults ? '4px' : '-80px'
             }}
           >
-          {/**/}
+        
             <Graph
               results={this.state.results}
               showResults={this.state.showResults}
               handleFormSubmit={this.handleFormSubmit}
             />
           </div>
-          {/**/}
+        
           <div
             className="col-md-4"
             id="savedWell"
@@ -183,7 +177,7 @@ class Main extends Component {
               marginTop: this.state.showResults ? '-70px' : '-10px'
             }}
           >
-          {/**/}
+          {/*dunno yet what's happening here*/}
             <Saved
               value={this.state.value}
               handleInputChange={this.handleInputChange}
