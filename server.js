@@ -13,7 +13,7 @@ var app = express();
 
 // Sets an initial port. We'll use this later in our listener
 // var PORT = process.env.PORT || 27017;
-var PORT = process.env.PORT || 3001;
+var PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
 app.use(logger('dev'));
@@ -30,6 +30,13 @@ app.use(express.static('public'));
 var dbURI = 'mongodb://localhost/foods';
 mongoose.connect(dbURI, { useMongoClient: true });
 
+// // MongoDB Config Set-up
+// if (process.env.NODE_ENV == 'production') {
+// 	mongoose.connect('mongodb://leejane07:test123@ds149431.mlab.com:49431/heroku_jd57ng4d');
+// } else {
+// 	mongoose.connect('mongodb://localhost/test123');
+// }
+
 var db = mongoose.connection;
 
 db.on('error', function(err) {
@@ -42,13 +49,20 @@ db.once('open', function() {
 
 //============================================================
 
-// Route to get all saved aoods
+// Any non API GET routes will be directed to our React App and handled by React Router
+app.get('*', function(req, res) {
+	res.sendFile(__dirname + '/public/index.html');
+});
+
+// -------------------------------------------------
+
+// Route to get all saved foods
 app.get('/api/saved', function(req, res) {
 	Food.find({}).exec(function(err, doc) {
 		if (err) {
 			console.log(err);
 		} else {
-			res.send(doc);
+			res.json(doc);
 		}
 	});
 });
@@ -63,12 +77,12 @@ app.post('/api/saved', function(req, res) {
 		if (err) {
 			console.log(err);
 		} else {
-			res.send(doc);
+			res.json(doc);
 		}
 	});
 });
 
-// Route to delete an aood from saved list
+// Route to delete any food from saved list
 // app.delete('/api/saved/', function(req, res) {
 // 	var url = req.param('url');
 
@@ -83,24 +97,10 @@ app.post('/api/saved', function(req, res) {
 // 		});
 // });
 
-// Any non API GET routes will be directed to our React App and handled by React Router
-app.get('*', function(req, res) {
-	res.sendFile(__dirname + '/public/index.html');
-});
-
-// -------------------------------------------------
-
 // Listener
 app.listen(PORT, function() {
 	console.log('App listening on PORT: ' + PORT);
 });
-
-// // MongoDB Config Set-up
-// if (process.env.NODE_ENV == 'production') {
-// 	mongoose.connect('mongodb://leejane07:test123@ds149431.mlab.com:49431/heroku_jd57ng4d');
-// } else {
-// 	mongoose.connect('mongodb://localhost/test123');
-// }
 
 // db.on('error', err => {
 // 	console.log(err);
