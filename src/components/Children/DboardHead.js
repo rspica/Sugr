@@ -28,6 +28,8 @@ export default class DboardHead extends Component {
   render() {
     console.log("header prop ",this.props)
     return (
+
+
     <div className="headWrapperDashBrd"> 
         <ListItem
             disabled={true}
@@ -35,6 +37,7 @@ export default class DboardHead extends Component {
                 <Avatar
                 size={35}
                 style={ header.avatar }
+
                 >
                 R
                 </Avatar>
