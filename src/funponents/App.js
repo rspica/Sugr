@@ -17,7 +17,7 @@ class App extends Component {
           <h2 id="titleBar">Sugr Trackr</h2>
         </div>
         <div className="App-intro">
-          {/* <panel id="userDiv" style={{ display: this.state.showUsers ? 'block' : 'none' }}>
+          /* <panel id="userDiv" style={{ display: this.state.showUsers ? 'block' : 'none' }}>
             <ul id="userList">
               <h3 id="userTag">Users:</h3>
               {this.state.users.map(user => (
@@ -28,7 +28,7 @@ class App extends Component {
                 </li>
               ))}
             </ul>
-          </panel>*/}
+          </panel>*/
           <Main />
         </div>
       </div>

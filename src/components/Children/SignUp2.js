@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-<<<<<<< HEAD
-=======
+
 const modalStyle = {
   inputStyle: {
     width: '100%',
@@ -16,7 +15,6 @@ const modalStyle = {
   width: '100%',
   }
 };
->>>>>>> ce63d8a297e9710e1646af6c93e70f4becfa8212
 
 export default class Form extends Component {
   constructor(props) {
@@ -25,7 +23,7 @@ export default class Form extends Component {
   }
 
   closeSignUp = () => {
-    console.log('clicking close in signIn')
+    // console.log('clicking close in signIn')
     this.props.handleClick("null");
   }
 
@@ -75,7 +73,7 @@ export default class Form extends Component {
 
 
   render() {
-    console.log('signUp: ',this.props.CurrentModal)
+    // console.log('signUp: ',this.props.CurrentModal)
 
     return (
             <div className="modalForm">

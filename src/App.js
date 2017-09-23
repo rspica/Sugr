@@ -17,6 +17,7 @@ import CurrentModal from './components/Children/CurrentModal';
 import SearchDspl   from './components/Children/SearchDspl';
 import dashboard    from './dashboard';
 
+
 // import API          from './utils/API'
 
 // Material-ui custom themes =========================================================
@@ -40,11 +41,10 @@ const muiTheme = getMuiTheme({
 });
 
 //================================================================================
-let Food = (props => {
-  return (
-    <div>Food item: {props.food.item_name}</div>
-  )
-})
+
+
+
+
 //================================================================================
 export default class App extends Component {
   constructor(props) {
@@ -72,23 +72,21 @@ export default class App extends Component {
     this.onShowResult = this.onShowResult.bind(this);
   }
 
-<<<<<<< HEAD
     handleClick = (clickVal) => {
-      console.log('clicking')
-      console.log(this)
+      // console.log('clicking')
+      // console.log(this)
       this.setState({
         CurrentModal: clickVal
       })
     }
 
     onSubmit = () => {
-      console.log("submitting")
+      // console.log("submitting")
     }
   
-=======
 // modal activation sign-in / signup / no display =============================
   handleClick = (clickVal) => {
-    console.log(this)
+    // console.log(this)
     this.setState({
       CurrentModal: clickVal
     })
@@ -99,13 +97,38 @@ export default class App extends Component {
   }
 
 // input value state change for all input fields ==============================
->>>>>>> ce63d8a297e9710e1646af6c93e70f4becfa8212
     inputChange = (value, key ) => {
       this.setState({
         [key]: value
       })
       console.log('value: ',value, 'key: ' ,key)
     };
+
+// // fernando's bad login logic
+
+// login() {
+//   auth.signInWithPopup(provider) 
+//     .then((result) => {
+//       const user = result.user;
+//       this.setState({
+//         user
+//       });
+//       console.log("============================" + user)
+//     });
+// }
+
+// login() {
+//   auth.signInWithEmailAndPassword(this.props.email, this.props.password); 
+//     .then((result) => {
+//       // const user = result.user;
+//       // this.setState({
+//       //   user
+//       // });
+//     });
+//     console.log("user")
+// }
+
+
 
 // landing page api call for searchbar on landing page and dashboard =========
 clickSearch = () => {
@@ -141,7 +164,7 @@ clickSearch = () => {
   // lshows results from search on landing page and/or dashboard =========
   onShowResult = () => {
     this.setState({
-      top: -10,
+      top: 0,
     });
   }
 
@@ -153,42 +176,39 @@ clickSearch = () => {
         <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <Header
-<<<<<<< HEAD
             handleClick = { this.handleClick } 
-            CurrentModal = { this.state.CurrentModal }/>
-          <Logo />
-          <LpSearch />
+            CurrentModal = { this.state.CurrentModal } />
+
           <CurrentModal 
             handleClick = { this.handleClick }
+            closeModal = { this.closeModal }
             inputChange = { this.inputChange }
+            CurrentModal = { this.state.CurrentModal } 
             onSumbit = {this.onSubmit}
-            CurrentModal = { this.state.CurrentModal } />
+            handleClick  = { this.handleClick } />
 
 
-=======
-            handleClick  = { this.handleClick } 
-            CurrentModal = { this.state.CurrentModal } />
           <CurrentModal 
             handleClick  = { this.handleClick }
             closeModal   = { this.closeModal }
             inputChange  = { this.inputChange }
             CurrentModal = { this.state.CurrentModal } />
+
           <LpSearch 
             clickSearch = { this.clickSearch }
             inputChange = { this.inputChange } />
-<<<<<<< HEAD
+
           <SearchDspl
             foodType = { this.state.foodType } />
->>>>>>> ce63d8a297e9710e1646af6c93e70f4becfa8212
-=======
             <div className="resultsWrapper">
             { this.state.showResults ? ( 
-              <SearchDspl
+          
+          <SearchDspl
                 top = { this.state.top }
                 foodType = { this.state.foodType } /> ) : (null )}
             </div>
 
->>>>>>> 4145a37dbb5822fc5e04d5e2e08f99e85564790e
+
         </div>
         </MuiThemeProvider>
       );

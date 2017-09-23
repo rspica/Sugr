@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -10,21 +11,15 @@ export default class Header extends Component {
   
   ClickSignIn = () => {
     this.props.handleClick("SignIn")
-<<<<<<< HEAD
-    console.log("clicked")
-
+    // console.log("clicked");
   }
-=======
-    }
-  
->>>>>>> ce63d8a297e9710e1646af6c93e70f4becfa8212
   
   ClickSignUp = () => {
     this.props.handleClick("SignUp")
   }
 
   render() {
-    console.log("header prop ",this.props)
+    // console.log("header prop ",this.props)
     return (
 
    <div className="headWrapperMain"> 
