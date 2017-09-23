@@ -102,7 +102,7 @@ class Main extends Component {
       <div className="container">
         <Modal />
         <div className="row">
-          <div className="col-md-4" id="form">
+          <div className="col-md-12" id="form">
             <Form
               value={this.state.value}
               handleInputChange={this.handleInputChange}
@@ -110,23 +110,10 @@ class Main extends Component {
               item={this.state.item}
             />
           </div>
-          {/**<Average /> is where a lot of Math happens upon conditional render. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
-          <div className="col-md-4" id="average">
-            <Average
-              results={this.state.results}
-              showResults={this.state.showResults}
-              handleFormSubmit={this.handleFormSubmit}
-            />
-          </div>
-          {/**<Charts /> is where charts render on the Dashboard. May someday be an API call. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
-          <div className="col-md-4" id="charts">
-            <Chart results={this.state.results} showResults={this.state.showResults} />
-          </div>
         </div>
-
         <div className="row">
           {/**<Results/> is where results render on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
-          <div className="col-md-4" id="resultWell">
+          <div className="col-md-12" id="resultWell">
             <div
               className="panel"
               id="results"
@@ -146,9 +133,23 @@ class Main extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="row">
+          {/**<Average /> is where a lot of Math happens upon conditional render. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
+          <div className="col-md-3" id="average">
+            <Average
+              results={this.state.results}
+              showResults={this.state.showResults}
+              handleFormSubmit={this.handleFormSubmit}
+            />
+          </div>
+          {/**<Charts /> is where charts render on the Dashboard. May someday be an API call. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
+          <div className="col-md-3" id="charts">
+            <Chart results={this.state.results} showResults={this.state.showResults} />
+          </div>
 
           <div
-            className="col-md-4"
+            className="col-md-3"
             id="graphWell"
             style={{
               marginTop: this.state.showResults ? '4px' : '-80px'
@@ -162,7 +163,7 @@ class Main extends Component {
           </div>
 
           <div
-            className="col-md-4"
+            className="col-md-3"
             id="savedWell"
             style={{
               marginTop: this.state.showResults ? '-70px' : '-10px'

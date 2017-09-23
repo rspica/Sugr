@@ -18,9 +18,6 @@ export default class Dashboard extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <DboardHead />
-          <SearchBar clickSearch={this.props.clickSearch} inputChange={this.inputChange} />
-          <UserProfile />
           <Main />
         </div>
       </MuiThemeProvider>
