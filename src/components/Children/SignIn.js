@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
-import { login, resetPassword } from '../../auth'
-
 const modalStyle = {
   inputStyle: {
     width: '100%'
@@ -21,34 +19,15 @@ const modalStyle = {
   }
 };
 
-function setErrorMsg(error) {
-  return {
-    loginMessage: error
-  }
-}
-
-
 export default class SignIn extends Component {
-  state = { loginMessage: null }
-  handleSubmit = (e) => {
-    e.preventDefault()
-    login(this.email.value, this.pw.value)
-    console.log("EMAIL: " + this.email.value + "PASS: " + this.pw.value)
-      .catch((error) => {
-          this.setState(setErrorMsg('Invalid username/password.'))
-        })
-  }
-
-    resetPassword = () => {
-    resetPassword(this.email.value)
-      .then(() => this.setState(setErrorMsg(`Password reset email sent to ${this.email.value}.`)))
-      .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    // console.log('signIn: ', this.props.CurrentModal);
-    // console.log('signIn prop ', this.props);
-    // console.log('from sign in this.closeModal: ', this.props.closeModal);
+    console.log('signIn: ', this.props.CurrentModal);
+    console.log('signIn prop ', this.props);
+    console.log('from sign in this.closeModal: ', this.props.closeModal);
 
     return (
       <div className="modalForm">
@@ -75,7 +54,6 @@ export default class SignIn extends Component {
                 onChange={ev => {
                   this.props.inputChange(ev.currentTarget.value, 'email');
                 }}
-                ref={(email) => this.email = email}
               />
 
               <TextField
@@ -86,7 +64,6 @@ export default class SignIn extends Component {
                 onChange={ev => {
                   this.props.inputChange(ev.currentTarget.value, 'password');
                 }}
-                ref={(pw) => this.pw = pw}
               />
             </form>
           </div>
@@ -96,7 +73,6 @@ export default class SignIn extends Component {
             style={modalStyle.btnStyle}
             containerElement={<Link to="/Dashboard" />}
             linkButton={true}
-            onSubmit={this.handleSubmit}
           />
 
           <div className="dividerOr">or</div>
@@ -107,5 +83,3 @@ export default class SignIn extends Component {
     );
   }
 }
-
-
