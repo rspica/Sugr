@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 //Require Schemas
 // var User = require('./src/schema');
-var Food = require('./models/Food)');
+var Food = require('./src/models/Food');
 
 // Create Instance of Express
 var app = express();
@@ -48,12 +48,6 @@ db.once('open', function() {
 });
 
 //============================================================
-
-// Any non API GET routes will be directed to our React App and handled by React Router
-app.get('*', function(req, res) {
-	res.sendFile(__dirname + '/public/index.html');
-});
-
 // -------------------------------------------------
 
 // Route to get all saved foods
@@ -68,7 +62,9 @@ app.get('/api/saved', function(req, res) {
 });
 
 // Route to add an aood to saved list
-app.post('/api/saved', function(req, res) {
+app.post('/api/save', function(req, res) {
+	console.log('calling /api/saved');
+
 	var newFood = new Food(req.body);
 
 	console.log(req.body);
@@ -96,6 +92,12 @@ app.post('/api/saved', function(req, res) {
 // 			}
 // 		});
 // });
+
+// Any non API GET routes will be directed to our React App and handled by React Router
+app.get('*', function(req, res) {
+	console.log('Hitting home');
+	res.sendFile(__dirname + '/public/index.html');
+});
 
 // Listener
 app.listen(PORT, function() {

@@ -1,6 +1,14 @@
 {
+<<<<<<< HEAD
   "main.css": "static/css/main.e6627ca6.css",
   "main.css.map": "static/css/main.e6627ca6.css.map",
   "main.js": "static/js/main.1169c595.js",
   "main.js.map": "static/js/main.1169c595.js.map"
+=======
+  "main.css": "static/css/main.0263393c.css",
+  "main.css.map": "static/css/main.0263393c.css.map",
+  "main.js": "static/js/main.b22f8877.js",
+  "main.js.map": "static/js/main.b22f8877.js.map",
+  "static/media/orange.png": "static/media/orange.c7c96674.png"
+>>>>>>> fml
 }

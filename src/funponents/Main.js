@@ -7,6 +7,8 @@ import Average from './Average.js';
 import Chart from './Chart.js';
 import Graph from './Graph.js';
 import API from './API.js';
+import Routes from '../components/routes';
+import DboardHead from '../components/Children/DboardHead';
 import { Modal } from 'react-bootstrap';
 
 class Main extends Component {
@@ -66,7 +68,6 @@ class Main extends Component {
     //===========validation checks inside the event listener===========================
     //probably don't need to reset state so much and so literally but this all helped me "think" through the app
     if (this.state.item === '') {
-      alert('No food item was entered');
       this.searchFood();
       this.setState({
         item: '',
@@ -81,35 +82,67 @@ class Main extends Component {
       //==================Important that showResults toggles to true. Show results is not on this compoent but the command to do so IS, so the call to it is being passed here========================================
     } else {
       this.setState({
-        food: [],
-        sugar: [],
+        food: '',
+        sugar: '',
         item: '',
-        brand: [],
+        brand: '',
         results: [],
-        logged: false,
         showResults: true,
-        name: 'Carol Jenkins'
+        user: 'Carol Jenkins'
       });
       this.searchFood('sugar');
-      alert(`Searching food item: ${this.state.item}`);
     }
+    this.setState({
+      food: '',
+      sugar: '',
+      item: '',
+      brand: '',
+      results: [],
+      showResults: true,
+      user: 'Carol Jenkins'
+    });
   };
 
   /*...Form is where search input happens on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/
 
   render() {
     return (
-      <div className="container">
-        <Modal />
+      <div className="container" style={{ margin: 'auto', textAlign: 'center' }}>
         <div className="row">
-          <div className="col-md-4" id="form">
+          <div className="col-sm-12">
+            <DboardHead />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12" id="form" style={{ marginBottom: '30px' }}>
             <Form
               value={this.state.value}
               handleInputChange={this.handleInputChange}
               handleFormSubmit={this.handleFormSubmit}
-              item={this.state.item}
             />
           </div>
+        </div>
+        <div className="row" style={{ display: this.state.showResults ? 'block' : 'none' }}>
+          {/**<Results/> is where results render on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
+          <div
+            className="col-sm-4"
+            id="resultWell"
+            style={{
+              marginTop: this.state.showResults ? '0px' : '60px',
+              borderColor: this.state.showResults ? 'lightgrey' : 'transparent'
+            }}
+          >
+            {/*user name can be passed here to become part of database object, associating a logged food with a user*/}
+            <Results
+              results={this.state.results}
+              showResults={this.state.showResults}
+              handleFormSubmit={this.handleFormSubmit}
+              user={this.state.user}
+              searchFood={this.searchFood}
+            />
+          </div>
+        </div>
+        <div className="row" style={{ display: this.state.showResults ? 'block' : 'none' }}>
           {/**<Average /> is where a lot of Math happens upon conditional render. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
           <div className="col-md-4" id="average">
             <Average
@@ -120,52 +153,24 @@ class Main extends Component {
           </div>
           {/**<Charts /> is where charts render on the Dashboard. May someday be an API call. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
           <div className="col-md-4" id="charts">
-            <Chart results={this.state.results} showResults={this.state.showResults} />
-          </div>
-        </div>
-
-        <div className="row">
-          {/**<Results/> is where results render on the Dashboard. handleFormSubmit properties are passed here because the states set therein, like showResults, determine the conditions of render later on...*/}
-          <div className="col-md-4" id="resultWell">
-            <div
-              className="panel"
-              id="results"
-              style={{
-                marginTop: this.state.showResults ? '-65px' : '-10px',
-                borderColor: this.state.showResults ? 'lightgrey' : 'transparent'
-              }}
-            >
-              <div className="panel-body">
-                {/*user name can be passed here to become part of database object, associating a logged food with a user*/}
-                <Results
-                  results={this.state.results}
-                  showResults={this.state.showResults}
-                  handleFormSubmit={this.handleFormSubmit}
-                  user={this.state.user}
-                />
-              </div>
-            </div>
+            <Chart results={this.state.results} />
           </div>
 
-          <div
-            className="col-md-4"
-            id="graphWell"
-            style={{
-              marginTop: this.state.showResults ? '4px' : '-80px'
-            }}
-          >
+          <div className="col-md-4" id="graphWell">
             <Graph
               results={this.state.results}
               showResults={this.state.showResults}
               handleFormSubmit={this.handleFormSubmit}
             />
           </div>
-
+        </div>
+        <div className="row">
           <div
-            className="col-md-4"
+            className="col-sm-12"
             id="savedWell"
             style={{
-              marginTop: this.state.showResults ? '-70px' : '-10px'
+              disply: this.state.logged ? 'block' : 'hidden',
+              borderColor: this.state.logged ? 'lightgrey' : 'transparent'
             }}
           >
             {/*dunno yet what's happening here*/}
