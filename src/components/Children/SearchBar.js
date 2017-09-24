@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
 
@@ -11,16 +10,13 @@ const SearchStyle = {
     primary: true,
     textTransform: 'capitalize',
     width: '30%',
-    height: '45',
+    height: '60',
   },
   inputStyle: {
     backgroundColor: '#F5F5F5',
     padding: '10px 20px',
-    borderWidth: '1px',
-    borderRadius: '3px 0 0 3px',
-    'input::placeholder': {
-      color: 'red',
-    }
+    borderWidth: '0px',
+    height: '100%',
   }
 };
 
@@ -29,7 +25,7 @@ export default class SearchBar extends Component {
 
       return (
 
-        <div className="searchBar dBoardSearch">
+        <div className="searchBar">
         <input 
         id="search" 
         type="text" 

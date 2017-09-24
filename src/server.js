@@ -5,26 +5,31 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 
 //Require Schemas
-var User = require('./src/schema');
+// var User = require('./src/schema');
+var Food = require('./src/models/Food');
 
 // Create Instance of Express
 var app = express();
-var router = express.Router();
 
 // Sets an initial port. We'll use this later in our listener
-var PORT = process.env.PORT || 27017;
+// var PORT = process.env.PORT || 27017;
+var PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
+app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(express.static('public'));
 
-// Make public a static dir
-app.use(express.static('public'));
-
 // -------------------------------------------------
+//MongoDB Configuration configuration (Change this URL to your own DB)
+
+// ******* local server use only *******
+// var dbURI = 'mongodb://localhost/foods';
+// mongoose.connect(dbURI, { useMongoClient: true });
 
 // MongoDB Config Set-up
 if (process.env.NODE_ENV == 'production') {
@@ -33,29 +38,87 @@ if (process.env.NODE_ENV == 'production') {
 	mongoose.connect('mongodb://localhost/test123');
 }
 
-db.on('error', err => {
-	console.log(err);
+var db = mongoose.connection;
+
+db.on('error', function(err) {
+	console.log('Mongoose Error: ', err);
 });
 
-db.once('open', err => {
-	if (err) {
-		console.log(err);
-	} else {
-		// ...
-	}
+db.once('open', function() {
+	console.log('Mongoose connection successful.');
 });
+
+//============================================================
 
 // -------------------------------------------------
 
-app.get('/', function(req, res) {
-	res.send('Hello world');
+// Route to get all saved foods
+app.get('/api/saved', function(req, res) {
+	Food.find({}).exec(function(err, doc) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(doc);
+		}
+	});
 });
+
+// Route to add an aood to saved list
+app.post('/api/save', function(req, res) {
+	console.log('calling /api/saved');
+
+	var newFood = new Food(req.body);
+
+	console.log(req.body);
+
+	newFood.save(function(err, doc) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(doc);
+		}
+	});
+});
+
+// Route to delete any food from saved list
+// app.delete('/api/saved/', function(req, res) {
+// 	var url = req.param('url');
+
+// 	Food.find({ url: url })
+// 		.remove()
+// 		.exec(function(err) {
+// 			if (err) {
+// 				console.log(err);
+// 			} else {
+// 				res.send('Deleted');
+// 			}
+// 		});
+// });
 
 // Any non API GET routes will be directed to our React App and handled by React Router
 app.get('*', function(req, res) {
+	console.log('Hitting home');
 	res.sendFile(__dirname + '/public/index.html');
 });
 
-// App is listening on Port 3000
-app.listen(PORT);
-console.log(`Server running on Port ${PORT}`);
+// Listener
+app.listen(PORT, function() {
+	console.log('App listening on PORT: ' + PORT);
+});
+
+// db.on('error', err => {
+// 	console.log(err);
+// });
+
+// db.once('open', err => {
+// 	if (err) {
+// 		console.log(err);
+// 	} else {
+// 		// ...
+// 	}
+// });
+
+// // Listener
+// app.listen(PORT, function() {
+// 	console.log('App listening on PORT: ' + PORT);
+// });

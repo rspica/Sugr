@@ -41,7 +41,7 @@ body {
     position: absolute;
     z-index: -1;
     top: 60px;
-    left:50%;
+    left: 50%;
     transform: translatex(-50%);
 }
 
@@ -53,10 +53,12 @@ body {
 
 .searchBar {
     display: flex;
-    height: 45px;
-    border: 1px solid $secondaryColor;
+    height: 60px;
+    border: 1.5px solid $secondaryColor;
     border-radius: 5px; 
     overflow: hidden;
+    position: relative;
+    z-index:3;
 }
 
 /*  universal input field styles on all forms */

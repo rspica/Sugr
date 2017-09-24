@@ -16,6 +16,7 @@ import LpSearch     from './components/Children/LpSearch';
 import CurrentModal from './components/Children/CurrentModal';
 import SearchDspl   from './components/Children/SearchDspl';
 import dashboard    from './dashboard';
+import clickSearch  from './utils/fnctn';
 
 // import API          from './utils/API'
 
@@ -37,14 +38,10 @@ const muiTheme = getMuiTheme({
   },
   TextField:
   {"width":"100%",},
+  FlatButton:
+  {'padding-top':'100',},
 });
 
-//================================================================================
-let Food = (props => {
-  return (
-    <div>Food item: {props.food.item_name}</div>
-  )
-})
 //================================================================================
 export default class App extends Component {
   constructor(props) {
@@ -62,7 +59,6 @@ export default class App extends Component {
         showResults: false,
       },
       CurrentModal: null,
-
     };
       
     this.inputChange = this.inputChange.bind(this);
@@ -89,13 +85,18 @@ export default class App extends Component {
       this.setState({
         [key]: value
       })
+//    onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')} } 
       console.log('value: ',value, 'key: ' ,key)
+      console.log('this.email: ',this.state.email)
+      console.log('this.[assword]: ',this.state.password)
     };
 
 // landing page api call for searchbar on landing page and dashboard =========
 clickSearch = () => {
+  // primary funda   const APIKEY = '5234f7f1&appKey=c6da7cb3302759d1e20f3793daa4b711';
+  // secondary const APIKEY = 'f6780a72&appKey=07084d23b49f810b82b76dd92b7c4a7e';
   const BASEURL = 'https://api.nutritionix.com/v1_1/search/';
-  const APIKEY = '5234f7f1&appKey=c6da7cb3302759d1e20f3793daa4b711';
+  const APIKEY = 'f6780a72&appKey=07084d23b49f810b82b76dd92b7c4a7e';
   const foodSearch = this.state.SearchItem
   const queryURL =  BASEURL + this.state.SearchItem + '?results=0:20&fields=item_name,brand_name,nf_sugars&appId=' + APIKEY;
 
@@ -105,29 +106,32 @@ clickSearch = () => {
         foodType: resp.data.hits,
       })  
     console.log('food by name response: ',resp.data.hits); 
-    this.mapAllFood(this.state.foodType);
+    this.mapAllFood(this.state.foodType);    
     this.setState({ showResults: true });
     console.log("this is show state: ",this.state.showResults)
     this.onShowResult();
   }) 
 } 
 
-  mapAllFood = (foods) => {
-    foods.map(food => {
-      console.log("Item Name: ",food.fields.item_name)
-      console.log("Brand Name: ",food.fields.brand_name)
-      console.log("sugars: ",food.fields.nf_sugars+"g")
-      console.log("serving size: ",food.fields.nf_serving_size_qty)
-      console.log("id: ",food._id)
-      console.log('****************************')
-    })
-  }
-
   // lshows results from search on landing page and/or dashboard =========
   onShowResult = () => {
     this.setState({
-      top: -10,
+      top: 0,
     });
+  }
+
+  // =====================================================================
+
+  mapAllFood = (foods, i) => {
+    foods.map(food => {
+      console.log('i: ', i);
+      console.log("Item Name: ",food.fields.item_name);
+      console.log("Brand Name: ",food.fields.brand_name);
+      console.log("sugars: ",food.fields.nf_sugars+"g");
+      console.log("serving size: ",food.fields.nf_serving_size_qty);
+      console.log("id: ",food._id);
+      console.log('****************************');
+    })
   }
 
   // =====================================================================

@@ -7,7 +7,7 @@ export default class UserProfile extends Component {
         return(
           <div>
 
-Hey
+user profile
 
    
   </div>

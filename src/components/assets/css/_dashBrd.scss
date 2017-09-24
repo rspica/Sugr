@@ -2,3 +2,11 @@
     font-size: 2em;
 }
 
+.dashBrdSearch {
+    position: absolute;
+    z-index: 10;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

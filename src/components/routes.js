@@ -1,8 +1,7 @@
 import React from 'react'
-import { render } from 'react-dom'
 import Dashboard from '../dashboard'
 import App from '../App'
-import { Router, Route, IndexRoute, Link, browserHistory} from 'react-router'
+import { Router, Route, browserHistory} from 'react-router'
 
 const Routes = () => (
 	//Setting up routes

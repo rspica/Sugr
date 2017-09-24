@@ -93,10 +93,12 @@ body {
 
 .searchBar {
   display: flex;
-  height: 45px;
-  border: 1px solid #90CAF9;
+  height: 60px;
+  border: 1.5px solid #90CAF9;
   border-radius: 5px;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative;
+  z-index: 3; }
 
 /*  universal input field styles on all forms */
 input {
@@ -164,7 +166,7 @@ button, input {
       cursor: pointer; }
 
 .resultsWrapper {
-  height: 250px;
+  height: 200px;
   margin: 0 auto;
   overflow: scroll;
   width: 75%;
@@ -177,27 +179,39 @@ button, input {
   width: 100%;
   margin: 0 auto;
   position: absolute;
-  top: -2000px;
+  top: -1000px;
   left: 0;
   font: 300 1em "Monserrat", sans-serif;
   border-radius: 0 5px; }
 
 .resutTitle {
-  font-size: 2em;
+  font: 300 1em "Monserrat", sans-serif;
+  font-size: 1.5em;
   color: #FF8A80;
   margin-bottom: 20px; }
 
 .foodItem {
+  font: 300 1em "Monserrat", sans-serif;
+  font-size: .8em;
   font-weight: 600;
   margin-bottom: 5px; }
 
 .foodStat {
+  font: 300 1em "Monserrat", sans-serif;
+  font-size: .8em;
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid #FF8A80; }
 
 .dashLogo {
   font-size: 2em; }
+
+.dashBrdSearch {
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%); }
 
 /* -- sign in modal window -- */
 /* modal sign-up window*/
@@ -228,6 +242,9 @@ button, input {
 
 .inputWrapper {
   margin-bottom: 30px; }
+
+a {
+  padding-top: 15px; }
 
 /* The Close Button (x) upper right corner*/
 .xClose {
@@ -291,7 +308,10 @@ button, input {
 
   .searchWrapper {
     margin-top: 120px;
-    width: 615px; } }
+    width: 75x; }
+
+  .resultsWell {
+    width: 75%; } }
 @media screen and (min-width: 601px) and (max-width: 724px) {
   .modalContent {
     width: 70%;
@@ -299,7 +319,10 @@ button, input {
 
   .searchWrapper {
     margin-top: 120px;
-    width: 615px; }
+    width: 75%; }
+
+  .resultsWell {
+    width: 75%; }
 
   .welcome h1 {
     font-size: 3.45em; } }
@@ -315,6 +338,9 @@ button, input {
 
   .searchWrapper {
     margin-top: 90px;
+    width: 90%; }
+
+  .resultsWell {
     width: 90%; }
 
   .searchBar {

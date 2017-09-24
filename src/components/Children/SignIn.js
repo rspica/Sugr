@@ -21,16 +21,13 @@ const modalStyle = {
 
 
 export default class SignIn extends Component {
-  constructor(props) {
-    super(props);
 
-  }
 
   render() {
     console.log('signIn: ',this.props.CurrentModal)
     console.log("signIn prop ",this.props)
     console.log('from sign in this.closeModal: ',this.props.closeModal)
-    console.log
+
 
     return (
       <div className="modalForm">
@@ -54,7 +51,7 @@ export default class SignIn extends Component {
             hintText="email"
             floatingLabelText="Email"
             style={ modalStyle.inputStyle }
-            onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')}} 
+            onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'email')} } 
           />
 
           <TextField 
@@ -62,7 +59,7 @@ export default class SignIn extends Component {
             hintText="password"
             floatingLabelText="Password"
             style={ modalStyle.inputStyle }
-            onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'password')}} 
+            onChange = { (ev) => {this.props.inputChange(ev.currentTarget.value, 'password')} } 
           />
           </form>
         </div>

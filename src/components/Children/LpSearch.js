@@ -9,7 +9,7 @@ export default class LpSearch extends Component {
     return (
     
     <div>
-      <img className="bgImage" src={require( '../assets/images/orange.png' )} />
+      <img className="bgImage" src={require( '../assets/images/orange.png' )} alt={' '} />
       <div className="searchWrapper"> 
         <div className="logo">
           <h1>Sugr</h1>

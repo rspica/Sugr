@@ -1,5 +1,5 @@
 .resultsWrapper {
-    height: 250px;
+    height: 200px;
     margin: 0 auto;
     overflow: scroll;
     width: 75%;
@@ -13,24 +13,29 @@
     width: 100%;
     margin: 0 auto;
     position: absolute;
-    top: -2000px;
+    top: -1000px;
     left: 0;
     font: $formFont;
     border-radius: 0 5px; 
 }
 
 .resutTitle {
-    font-size: 2em;
+    font: $formFont;
+    font-size: 1.5em;
     color: $primaryColor;
     margin-bottom: 20px;  
 }
 
 .foodItem {
+    font: $formFont;
+    font-size: .8em;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
 .foodStat {
+    font: $formFont;
+    font-size: .8em;
     padding-bottom: 15px;
     margin-bottom: 15px;
     border-bottom: 1px solid $primaryColor;

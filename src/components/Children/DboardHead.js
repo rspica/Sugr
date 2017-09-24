@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from "react-router";
 
 import Avatar from 'material-ui/Avatar';
-import FlatButton from 'material-ui/FlatButton';
-import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 
 const header = {
@@ -19,11 +17,6 @@ const header = {
 
 
 export default class DboardHead extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-
 
   render() {
     console.log("header prop ",this.props)
