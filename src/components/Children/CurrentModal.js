@@ -8,9 +8,9 @@ export default class CurrentModal extends Component {
     render() {
 
         if (this.props.CurrentModal === 'SignIn') {
-            console.log('ModalName: ',this.props.CurrentModal)
-            console.log('currentModal clickhandle: ',this.props.handleClick)
-            console.log('currentModal closeModal: ',this.props.closeModal)
+            // console.log('ModalName: ',this.props.CurrentModal)
+            // console.log('currentModal clickhandle: ',this.props.handleClick)
+            // console.log('currentModal closeModal: ',this.props.closeModal)
             return <SignIn 
                         CurrentModal = { this.props.CurrentModal } 
                         handleClick  = { this.props.handleClick }
