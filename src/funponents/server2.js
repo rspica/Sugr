@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 //Require Schemas
 // var User = require('./src/schema');
-var Food = require('./src/models/Food');
+var Food = require('./models/Food)');
 
 // Create Instance of Express
 var app = express();
@@ -27,15 +27,15 @@ app.use(express.static('public'));
 // -------------------------------------------------
 //MongoDB Configuration configuration (Change this URL to your own DB)
 
-var dbURI = 'mongodb://localhost/foods';
-mongoose.connect(dbURI, { useMongoClient: true });
+// var dbURI = 'mongodb://localhost/foods';
+// mongoose.connect(dbURI, { useMongoClient: true });
 
-// // MongoDB Config Set-up
-// if (process.env.NODE_ENV == 'production') {
-// 	mongoose.connect('mongodb://leejane07:test123@ds149431.mlab.com:49431/heroku_jd57ng4d');
-// } else {
-// 	mongoose.connect('mongodb://localhost/test123');
-// }
+// MongoDB Config Set-up
+if (process.env.NODE_ENV == 'production') {
+	mongoose.connect('mongodb://leejane07:test123@ds149431.mlab.com:49431/heroku_jd57ng4d', useMongoClient: true });
+} else {
+	mongoose.connect('mongodb://localhost/test123');
+}
 
 var db = mongoose.connection;
 
@@ -48,6 +48,11 @@ db.once('open', function() {
 });
 
 //============================================================
+
+// Any non API GET routes will be directed to our React App and handled by React Router
+app.get('*', function(req, res) {
+	res.sendFile(__dirname + '/public/index.html');
+});
 
 // -------------------------------------------------
 
@@ -63,9 +68,7 @@ app.get('/api/saved', function(req, res) {
 });
 
 // Route to add an aood to saved list
-app.post('/api/save', function(req, res) {
-	console.log('calling /api/saved');
-
+app.post('/api/saved', function(req, res) {
 	var newFood = new Food(req.body);
 
 	console.log(req.body);
@@ -93,12 +96,6 @@ app.post('/api/save', function(req, res) {
 // 			}
 // 		});
 // });
-
-// Any non API GET routes will be directed to our React App and handled by React Router
-app.get('*', function(req, res) {
-	console.log('Hitting home');
-	res.sendFile(__dirname + '/public/index.html');
-});
 
 // Listener
 app.listen(PORT, function() {
