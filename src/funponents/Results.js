@@ -2,9 +2,11 @@ import React from 'react';
 import './App.css';
 import './Main.js';
 import API from './API.js';
+import { DropdownButton } from 'react-bootstrap';
+import { MenuItem } from 'react-bootstrap';
 
 const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) => (
-  <ul className="list-group search-results" style={{ borderStyle: showResults ? 'solid' : 'none' }}>
+  <DropdownButton style={{ borderStyle: showResults ? 'solid' : 'none' }}>
     {/*.........Destructuring assignment draws out just what's needed from results array http://exploringjs.com/es6/ch_destructuring.html#sec_overview-destructuring....*/}
 
     {results.map(result => {
@@ -19,9 +21,11 @@ const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) =>
         date += d.getFullYear();
 
         user = 'user';
+        let logged = true;
 
-        API.postSaved(brand_name, date, item_name, true, nf_sugars, user);
+        API.postSaved(user, item_name, brand_name, nf_sugars, date, logged);
         alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams on ' + date);
+        let showResults = false;
       };
 
       {
@@ -29,13 +33,19 @@ const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) =>
       }
 
       return (
-        <li key={result._id} className="list-group-item" style={{ display: showResults ? 'block' : 'none' }}>
+        <MenuItem
+          key={result._id}
+          className="list-group-item"
+          onClick={handleLog}
+          style={{ display: showResults ? 'block' : 'none' }}
+        >
           <h5 className="contains">{item_name}</h5>
 
           <h5>{brand_name}</h5>
           <h5>{nf_sugars}g sugar</h5>
-          <button
-            onClick={handleLog}
+
+          {/*} <button
+           
             style={{
               color: 'black',
               display: 'inline',
@@ -46,11 +56,11 @@ const Results = ({ results, handleFormSubmit, showResults, handleLog, user }) =>
             }}
           >
             log
-          </button>
-        </li>
+          </button>*/}
+        </MenuItem>
       );
     })}
-  </ul>
+  </DropdownButton>
 );
 
 export default Results;

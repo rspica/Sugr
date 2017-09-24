@@ -3,8 +3,12 @@ import React from 'react';
 const Form = props => ({
   render() {
     return (
-      <div className="form-group">
-        <form className="form">
+      <div>
+        <form
+          style={{
+            marginBottom: '30px'
+          }}
+        >
           <input
             onChange={props.handleInputChange}
             value={props.item}
@@ -12,24 +16,28 @@ const Form = props => ({
             type="text"
             style={{
               backgroundColor: '#F5F5F5',
-              padding: '10px 20px',
+              padding: '13px 10px',
               borderWidth: '1px',
-              borderRadius: '3px 0 0 3px',
-              width: '100%'
+              borderRadius: '3px 0 0 3px'
             }}
             placeholder="Search for food eg. &quot;bananas&quot;, Snickers Bar&quot;"
-            required
           />
+
+          <button
+            className="btn btn-primary"
+            onClick={props.handleFormSubmit}
+            id="submitter"
+            style={{
+              backgroundColor: '#90CAF9',
+              color: 'white',
+              width: '10%',
+              height: '55',
+              float: 'right'
+            }}
+          >
+            Show Me
+          </button>
         </form>
-        <button
-          className="btn btn-primary"
-          onClick={props.handleFormSubmit}
-          id="submitter"
-          style={{ backgroundColor: '#90CAF9', color: 'white', width: '10%', height: '45', float: 'right' }}
-        >
-          Show Me
-        </button>
-        <h3 style={{ color: '#fd746a', marginTop: '40px' }}>Then select a brand name below:</h3>
       </div>
     );
   }
