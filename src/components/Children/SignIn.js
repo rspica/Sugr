@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
-import { login, resetPassword } from '../../auth'
+//import { login, resetPassword } from '../../auth'
 
 const modalStyle = {
   inputStyle: {
@@ -27,19 +27,18 @@ function setErrorMsg(error) {
   }
 }
 
-
 export default class SignIn extends Component {
   state = { loginMessage: null }
-  handleSubmit = (e) => {
-    e.preventDefault()
-    login(this.email.value, this.pw.value)
-    console.log("EMAIL: " + this.email.value + "PASS: " + this.pw.value)
-      .catch((error) => {
-          this.setState(setErrorMsg('Invalid username/password.'))
-        })
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   login(this.email.value, this.pw.value)
+  //   console.log("EMAIL: " + this.email.value + "PASS: " + this.pw.value)
+  //     .catch((error) => {
+  //         this.setState(setErrorMsg('Invalid username/password.'))
+  //       })
+  // }
 
-    resetPassword = () => {
+    resetPassword = (resetPassword) => {
     resetPassword(this.email.value)
       .then(() => this.setState(setErrorMsg(`Password reset email sent to ${this.email.value}.`)))
       .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))

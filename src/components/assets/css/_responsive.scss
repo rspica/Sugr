@@ -9,8 +9,16 @@
     }
 
     .logo {
-        margin-bottom: 75px;
+        margin-bottom: 50px;
         font-size: 15em;
+    }
+    .searchWrapper {
+        margin-top: 110px;
+    }
+
+    .resultsWrapper {
+        height: 200px;
+        overflow: scroll;
     }
 }
 
@@ -25,6 +33,14 @@
         margin-top: 120px;
         width: 615px;
     }
+
+    .dashBrdSearch {
+        width: 615px;
+    }
+
+    .resultsWrapper {
+        width: 615px;
+    }
 }
 
 @media screen and (min-width: 601px) and (max-width: 724px) {
@@ -35,6 +51,14 @@
 
     .searchWrapper {
         margin-top: 120px;
+        width: 615px;
+    }
+
+    .dashBrdSearch {
+        width: 615px;
+    }
+
+    .resultsWrapper {
         width: 615px;
     }
 
@@ -55,15 +79,25 @@
 
     .bgImage {
         width: 500px;
+        top: 40px;
     }
 
-    .searchWrapper {
+    .searchWrapper  {
         margin-top: 90px;
         width: 90%;
     }
 
+    .resultsWrapper {
+        width: 90%;
+        height: 180px;
+    }
+
     .searchBar {
         height: 45px;
+    }
+
+    .dashBrdSearch {
+        width: 90%;
     }
 
     .welcome h1 {

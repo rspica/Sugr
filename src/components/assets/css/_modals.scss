@@ -41,6 +41,7 @@
 /* The Close Button (x) upper right corner*/
 .xClose {
     position: absolute;
+    z-index: 10;
     right: 20px;
     top: 10px;
     color: $secondaryColor;
