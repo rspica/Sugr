@@ -95,7 +95,7 @@ closeResults = () => {
     this.setState({
       foodToAdd: foodArray
     })
-    console.log(foodArray);
+    console.log('this is a foodArray: ',foodArray);
     console.log("food we will send to log well: ", this.state.foodToAdd)
   }
 
@@ -135,11 +135,11 @@ closeResults = () => {
             &times;
           </div>
           <div>
-            { this.state.showResults ? ( <SearchDspl
+            <SearchDspl
             top = { this.state.top }
             hasBtn = { this.state.hasBtn }
             onAddFood = { this.onAddFood }
-            results = { this.state.results } /> ) : (this.state.results ) }
+            results = { this.state.results } />
           </div>
         </div>
       </div>
@@ -148,12 +148,11 @@ closeResults = () => {
 
       <div className="flexRow reportContainer">
         <div className="ResultLogWell">
-          <div className="downArrow"></div>
           <FoodLog 
             foodToAdd = { this.state.foodToAdd }/>
         </div>
-        <div className="sugrStatWell">
-          <FoodLog foodToAdd = { this.state.foodToAdd }/>
+        <div className="sugrShamerWell">
+          <Average foodToAdd = { this.state.foodToAdd }/>
 
         </div>
         <div className="chartWell">

@@ -277,7 +277,7 @@ button, input {
   top: 130px;
   font: 300 1em "Monserrat", sans-serif; }
 
-.reportWell, .ResultLogWell, .sugrStatWell, .chartWell {
+.reportWell, .ResultLogWell, .sugrShamerWell, .chartWell {
   padding: 7px 15px;
   box-sizing: border-box;
   background-color: white;
