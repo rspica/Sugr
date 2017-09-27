@@ -1,41 +1,26 @@
 import React, { Component } from 'react';
-import axios            from 'axios';
+
 import getMuiTheme      from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import {fade}        from 'material-ui/src/styles/colorManipulator';
-// import SugrTheme from './utils/uiTheme.js';
+
 import {teal900, 
         cyan700, cyan500, 
         white, darkBlack, fullBlack,
         pinkA200, 
         grey100, grey300, grey400, grey500,} from 'material-ui/styles/colors';
 
-import Header       from './components/Children/Header';
-import Logo         from './components/Children/Logo';
-import LpSearch     from './components/Children/LpSearch';
+import API          from './API';
 import CurrentModal from './components/Children/CurrentModal';
-import SearchDspl   from './components/Children/SearchDspl';
 import dashboard    from './dashboard';
+import Header       from './components/Children/Header';
+import LpSearch     from './components/Children/LpSearch';
+import SearchDspl   from './components/Children/SearchDspl';
 
 
-// import API          from './utils/API'
 
 // Material-ui custom themes =========================================================
 const muiTheme = getMuiTheme({
   fontFamily: 'Monserrat, sans-serif',
-  palette: {
-    primary1Color: teal900,
-    primary2Color: cyan700,
-    primary3Color: grey400,
-    accent1Color: pinkA200,
-    accent2Color: grey100,
-    accent3Color: grey500,
-    textColor: teal900,
-    alternateTextColor: white,
-    canvasColor: white,
-    borderColor: grey300,
-    shadowColor: fullBlack,
-  },
   TextField:
   {"width":"100%",},
 });
@@ -57,28 +42,20 @@ export default class App extends Component {
         profilePict:'',
       },
       Search: {
-        SearchItem:'',
-        foodType: [],
+        item: '',
+        results: [],
         showResults: false,
       },
       CurrentModal: null,
-
+      hasBtn: 'none',
     };
       
     this.inputChange = this.inputChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.clickSearch = this.clickSearch.bind(this);
+    this.searchFood = this.searchFood.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.onShowResult = this.onShowResult.bind(this);
   }
-
-    handleClick = (clickVal) => {
-      // console.log('clicking')
-      // console.log(this)
-      this.setState({
-        CurrentModal: clickVal
-      })
-    }
 
     onSubmit = () => {
       // console.log("submitting")
@@ -96,13 +73,14 @@ export default class App extends Component {
     this.handleClick("null");
   }
 
+
 // input value state change for all input fields ==============================
-    inputChange = (value, key ) => {
-      this.setState({
-        [key]: value
-      })
-      console.log('value: ',value, 'key: ' ,key)
-    };
+  inputChange = (value, key ) => {
+    this.setState({
+      [key]: value
+    })
+  console.log('value: ',value, 'key: ' ,key)
+  };
 
 // // fernando's bad login logic
 
@@ -131,42 +109,27 @@ export default class App extends Component {
 
 
 // landing page api call for searchbar on landing page and dashboard =========
-clickSearch = () => {
-  const BASEURL = 'https://api.nutritionix.com/v1_1/search/';
-  const APIKEY = '5234f7f1&appKey=c6da7cb3302759d1e20f3793daa4b711';
-  const foodSearch = this.state.SearchItem
-  const queryURL =  BASEURL + this.state.SearchItem + '?results=0:20&fields=item_name,brand_name,nf_sugars&appId=' + APIKEY;
+searchFood = () => {
+  // test query string  ==== https://api.nutritionix.com/v1_1/search/apple?results=0:20&fields=item_name,brand_name,nf_sugars&appId=5234f7f1&appKey=40a5d6ab8411eb1e9d9f23f601944842
+  const currQuery = this.state.item + '?results=0:20&fields=item_name,brand_name,nf_sugars&appId=';
 
-  return axios.get(queryURL)
-    .then(resp => {
-      this.setState({
-        foodType: resp.data.hits,
-      })  
-    console.log('food by name response: ',resp.data.hits); 
-    this.mapAllFood(this.state.foodType);
-    this.setState({ showResults: true });
-    console.log("this is show state: ",this.state.showResults)
-    this.onShowResult();
-  }) 
-} 
-
-  mapAllFood = (foods) => {
-    foods.map(food => {
-      console.log("Item Name: ",food.fields.item_name)
-      console.log("Brand Name: ",food.fields.brand_name)
-      console.log("sugars: ",food.fields.nf_sugars+"g")
-      console.log("serving size: ",food.fields.nf_serving_size_qty)
-      console.log("id: ",food._id)
-      console.log('****************************')
+  API.search(currQuery)
+    .then(res => {
+      this.setState({ results: res.data.hits });
+      this.onShowResult();
     })
-  }
+    .catch(err => console.log(err));
+};
 
-  // lshows results from search on landing page and/or dashboard =========
-  onShowResult = () => {
-    this.setState({
-      top: 0,
-    });
-  }
+// shows results from search on landing page and/or dashboard ================
+onShowResult = () => {
+  this.setState({
+    showResults: true,
+    top: 0,
+  });
+  console.log('showResults: ', this.state.showResults)
+}
+
 
   // =====================================================================
     render() {
@@ -195,19 +158,15 @@ clickSearch = () => {
             CurrentModal = { this.state.CurrentModal } />
 
           <LpSearch 
-            clickSearch = { this.clickSearch }
+            searchFood = { this.searchFood }
             inputChange = { this.inputChange } />
 
-          <SearchDspl
-            foodType = { this.state.foodType } />
             <div className="resultsWrapper">
-            { this.state.showResults ? ( 
-          
-          <SearchDspl
+            { this.state.showResults ? ( <SearchDspl
+                hasBtn = { this.state.hasBtn }
                 top = { this.state.top }
-                foodType = { this.state.foodType } /> ) : (null )}
+                results = { this.state.results } /> ) : (null ) }
             </div>
-
 
         </div>
         </MuiThemeProvider>

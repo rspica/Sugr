@@ -23,9 +23,10 @@ body {
     justify-content: space-between;
 }
 
-.row {
+.flexRow {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
 }
 
@@ -53,7 +54,7 @@ body {
 
 .searchBar {
     display: flex;
-    height: 45px;
+    height: 60px;
     border: 1px solid $secondaryColor;
     border-radius: 5px; 
     overflow: hidden;
@@ -113,12 +114,13 @@ button {
 
 .navLabel {
 
-    li { padding-top: 7px; }
+    li { padding-right: 15px; }
 
     a {
         font: $formFont;
         color: $primaryColor;
         height: 40px;
+        text-decoration: none;
 
         &:hover {
             color: $tertiaryColor;

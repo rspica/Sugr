@@ -2,3 +2,142 @@
     font-size: 2em;
 }
 
+/* === Search bar style === */
+.dashBrdSearch {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 110px;
+    position: absolute;
+    z-index: 10;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+
+/* === Search-results display container under search bar see _displayResults.scss forcontent style === */
+.dashBrdresults {
+    // height: 200px;
+    margin: 0 auto;
+    padding-right: 20px;
+    overflow: scroll;
+    position: relative;
+    border: 1px solid rgb(225, 225, 225);
+    top: -3px;
+    z-index: -1;
+    transition: max-height ease 0.2s;
+}
+
+.resultsWrapper {
+    height: 250px;
+    margin: 0 auto;
+    overflow: scroll;
+    width: 75%;
+    position: relative;
+}
+
+.resultWell {
+    padding: 15px 20px 10px;
+    align-items: center;
+    background-color: rgba(245, 245, 245, 0.7);
+    width: 100%;
+    margin: 0 auto;
+    // position: absolute;
+    left: 0;
+    font: $formFont;
+    border-radius: 0 0 5px 5px; 
+}
+
+.addBtn {
+    font-size: .75em;
+    padding: 2px 5px 3px;
+    height: 30px;
+    background-color: $primaryColor;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    &:hover,
+    &:focus {
+        color: darken( $primaryColor, 10% );
+        cursor: pointer;
+    }
+}
+
+/* === The Close Button (x) upper right corner === */
+.xResultsClose {
+    position: fixed;
+    z-index: 10;
+    right: 20px;
+    top: 65px;
+    color: $secondaryColor;
+    font-size: 1.7em;
+
+    &:hover,
+    &:focus {
+        color: $primaryColor;
+        cursor: pointer;
+    }
+}
+
+/* === Page separator === */
+.dividerToday {
+    text-align: center;
+    margin: 15px 0 20px;
+    color: $secondaryColor;
+    font-size: 3em;
+    position: relative;
+    top: 130px;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 40%;
+        top: 33px;
+        border-bottom: 1px solid $secondaryColor;
+    }
+
+    &:after {
+        right: 0;
+    }
+}
+
+/* === Lower half page reporting conatiners on search selections see _displayResults.scss for content style === */
+.reportContainer {
+    position: relative;
+    top: 130px;
+    font: $formFont;
+}
+.reportWell {
+    padding: 7px 15px;
+    box-sizing: border-box;
+    background-color: lighten($secondaryColor, 40%);
+    border-radius: 5px; 
+    flex-basis: 32%;
+    height: 200px;
+    position: relative;
+}
+.ResultLogWell {
+    @extend .reportWell;
+    overflow: scroll;
+}
+
+.sugrStatWell {
+    @extend .reportWell;
+}
+.chartWell {
+    @extend .reportWell;
+}
+
+.downArrow {
+    position: absolute;
+    z-index: 20;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 25px;
+    transform: rotate(45deg);
+    border: 5px solid lighten($primaryColor, 20%)
+}

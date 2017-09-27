@@ -23,7 +23,7 @@ export default class Header extends Component {
     return (
 
    <div className="headWrapperMain"> 
-      <div className="row">
+      <div className="flexRow">
         <div className="navLabel">
           <button 
             onClick = { this.clickSignIn } //currentModal = SignIn

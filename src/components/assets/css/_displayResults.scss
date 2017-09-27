@@ -1,37 +1,28 @@
-.resultsWrapper {
-    height: 250px;
-    margin: 0 auto;
-    overflow: scroll;
-    width: 75%;
-    position: relative;
+
+
+.resultGroup {
+    flex-grow: 2;
 }
 
-.resultWell {
-    padding: 10px 20px 10px;
-    align-items: center;
-    background-color: rgba(245, 245, 245, 0.8);
-    width: 100%;
-    margin: 0 auto;
-    position: absolute;
-    top: -2000px;
-    left: 0;
-    font: $formFont;
-    border-radius: 0 5px; 
+.separator {
+    border-bottom: 1px solid $primaryColor;
 }
 
-.resutTitle {
-    font-size: 2em;
+.resultTitle {
+    font-size: 1.5em;
     color: $primaryColor;
     margin-bottom: 20px;  
 }
 
 .foodItem {
     font-weight: 600;
-    margin-bottom: 5px;
+    font-size: .85em;
+    margin-top: 15px;
 }
 
 .foodStat {
+    font-weight: 300;
+    font-size: .9em;
     padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid $primaryColor;
+    margin: 5px 0 0;
 }

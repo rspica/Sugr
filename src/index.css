@@ -67,9 +67,10 @@ body {
 .headWrapperDashBrd {
   justify-content: space-between; }
 
-.row {
+.flexRow {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   box-sizing: border-box; }
 
 .searchWrapper {
@@ -93,7 +94,7 @@ body {
 
 .searchBar {
   display: flex;
-  height: 45px;
+  height: 60px;
   border: 1px solid #90CAF9;
   border-radius: 5px;
   overflow: hidden; }
@@ -137,11 +138,12 @@ button, input {
     color: #afafaf; }
 
 .navLabel li {
-  padding-top: 7px; }
+  padding-right: 15px; }
 .navLabel a {
   font: 300 1em "Monserrat", sans-serif;
   color: #FF8A80;
-  height: 40px; }
+  height: 40px;
+  text-decoration: none; }
   .navLabel a:hover {
     color: #afafaf; }
 
@@ -163,6 +165,54 @@ button, input {
       color: #fff;
       cursor: pointer; }
 
+.resultGroup {
+  flex-grow: 2; }
+
+.separator {
+  border-bottom: 1px solid #FF8A80; }
+
+.resultTitle {
+  font-size: 1.5em;
+  color: #FF8A80;
+  margin-bottom: 20px; }
+
+.foodItem {
+  font-weight: 600;
+  font-size: .85em;
+  margin-top: 15px; }
+
+.foodStat {
+  font-weight: 300;
+  font-size: .9em;
+  padding-bottom: 15px;
+  margin: 5px 0 0; }
+
+.dashLogo {
+  font-size: 2em; }
+
+/* === Search bar style === */
+.dashBrdSearch {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 110px;
+  position: absolute;
+  z-index: 10;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden; }
+
+/* === Search-results display container under search bar see _displayResults.scss forcontent style === */
+.dashBrdresults {
+  margin: 0 auto;
+  padding-right: 20px;
+  overflow: scroll;
+  position: relative;
+  border: 1px solid #e1e1e1;
+  top: -3px;
+  z-index: -1;
+  transition: max-height ease 0.2s; }
+
 .resultsWrapper {
   height: 250px;
   margin: 0 auto;
@@ -171,33 +221,84 @@ button, input {
   position: relative; }
 
 .resultWell {
-  padding: 10px 20px 10px;
+  padding: 15px 20px 10px;
   align-items: center;
-  background-color: rgba(245, 245, 245, 0.8);
+  background-color: rgba(245, 245, 245, 0.7);
   width: 100%;
   margin: 0 auto;
-  position: absolute;
-  top: -2000px;
   left: 0;
   font: 300 1em "Monserrat", sans-serif;
-  border-radius: 0 5px; }
+  border-radius: 0 0 5px 5px; }
 
-.resutTitle {
-  font-size: 2em;
-  color: #FF8A80;
-  margin-bottom: 20px; }
+.addBtn {
+  font-size: .75em;
+  padding: 2px 5px 3px;
+  height: 30px;
+  background-color: #FF8A80;
+  border-radius: 5px;
+  box-sizing: border-box; }
+  .addBtn:hover, .addBtn:focus {
+    color: #ff5b4d;
+    cursor: pointer; }
 
-.foodItem {
-  font-weight: 600;
-  margin-bottom: 5px; }
+/* === The Close Button (x) upper right corner === */
+.xResultsClose {
+  position: fixed;
+  z-index: 10;
+  right: 20px;
+  top: 65px;
+  color: #90CAF9;
+  font-size: 1.7em; }
+  .xResultsClose:hover, .xResultsClose:focus {
+    color: #FF8A80;
+    cursor: pointer; }
 
-.foodStat {
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #FF8A80; }
+/* === Page separator === */
+.dividerToday {
+  text-align: center;
+  margin: 15px 0 20px;
+  color: #90CAF9;
+  font-size: 3em;
+  position: relative;
+  top: 130px; }
+  .dividerToday:before, .dividerToday:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40%;
+    top: 33px;
+    border-bottom: 1px solid #90CAF9; }
+  .dividerToday:after {
+    right: 0; }
 
-.dashLogo {
-  font-size: 2em; }
+/* === Lower half page reporting conatiners on search selections see _displayResults.scss for content style === */
+.reportContainer {
+  position: relative;
+  top: 130px;
+  font: 300 1em "Monserrat", sans-serif; }
+
+.reportWell, .ResultLogWell, .sugrStatWell, .chartWell {
+  padding: 7px 15px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 5px;
+  flex-basis: 32%;
+  height: 200px;
+  position: relative; }
+
+.ResultLogWell {
+  overflow: scroll; }
+
+.downArrow {
+  position: absolute;
+  z-index: 20;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 25px;
+  transform: rotate(45deg);
+  border: 5px solid #ffe8e6; }
 
 /* -- sign in modal window -- */
 /* modal sign-up window*/
@@ -232,6 +333,7 @@ button, input {
 /* The Close Button (x) upper right corner*/
 .xClose {
   position: absolute;
+  z-index: 10;
   right: 20px;
   top: 10px;
   color: #90CAF9;
@@ -282,8 +384,15 @@ button, input {
     width: 915px; }
 
   .logo {
-    margin-bottom: 75px;
-    font-size: 15em; } }
+    margin-bottom: 50px;
+    font-size: 15em; }
+
+  .searchWrapper {
+    margin-top: 110px; }
+
+  .resultsWrapper {
+    height: 200px;
+    overflow: scroll; } }
 @media screen and (min-width: 725px) and (max-width: 1000px) {
   .modalContent {
     width: 67%;
@@ -291,6 +400,12 @@ button, input {
 
   .searchWrapper {
     margin-top: 120px;
+    width: 615px; }
+
+  .dashBrdSearch {
+    width: 615px; }
+
+  .resultsWrapper {
     width: 615px; } }
 @media screen and (min-width: 601px) and (max-width: 724px) {
   .modalContent {
@@ -299,6 +414,12 @@ button, input {
 
   .searchWrapper {
     margin-top: 120px;
+    width: 615px; }
+
+  .dashBrdSearch {
+    width: 615px; }
+
+  .resultsWrapper {
     width: 615px; }
 
   .welcome h1 {
@@ -311,14 +432,22 @@ button, input {
     padding: 6px 10px; }
 
   .bgImage {
-    width: 500px; }
+    width: 500px;
+    top: 40px; }
 
   .searchWrapper {
     margin-top: 90px;
     width: 90%; }
 
+  .resultsWrapper {
+    width: 90%;
+    height: 180px; }
+
   .searchBar {
     height: 45px; }
+
+  .dashBrdSearch {
+    width: 90%; }
 
   .welcome h1 {
     font-size: 2.9em;
