@@ -33,7 +33,7 @@ const AnimStyle = {
                                             nf_sugars: nf_sugars,
                                             nf_serving_size_qty: nf_serving_size_qty,
                                             };
-                                return  <li key={foodItem._id} >
+                                return  <li key={foodItem._id}>
                                             <div className="flexRow separator">
                                                 <div className="resultGroup"> 
                                                 <h2 className="foodItem"><strong>{ foodItem.fields.brand_name }</strong> { foodItem.fields.item_name }</h2>
