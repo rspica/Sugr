@@ -202,13 +202,13 @@ button, input {
 
 /*  total sugr counter styles for center column on dashboard  */
 .statContainer {
-  /*  This holds sugar number and benchmark (ie. 23g/25g ) */
+  /*  This holds sugar number and benchmark (ie. 23g/25g ) and positions the group in the well */
   position: relative;
   top: 25px;
   height: 175px; }
 
 .intakeWrapper {
-  /*  This position users sugar in-take number right justified  */
+  /*  This position users sugar in-take number right justified in relation to the (/25g) benchmark numbers */
   position: absolute;
   top: 0px;
   left: 15px;
@@ -371,6 +371,9 @@ button, input {
 
 .sugrShamerWell {
   position: relative; }
+
+.chartWell {
+  overflow: hidden; }
 
 .sugar-chart-container {
   position: relative;

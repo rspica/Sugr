@@ -162,6 +162,7 @@
 }
 .chartWell {
     @extend .reportWell;
+    overflow: hidden;
 }
 
 .sugar-chart-container {
