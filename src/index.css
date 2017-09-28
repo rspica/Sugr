@@ -166,29 +166,86 @@ button, input {
       cursor: pointer; }
 
 .resultGroup {
-  flex-grow: 2; }
+  flex-grow: 2;
+  padding: 10px 0; }
 
 .separator {
-  border-bottom: 1px solid #FF8A80; }
+  width: 97%;
+  border-top: 1px solid #FF8A80; }
 
 .resultTitle {
   font-size: 1.5em;
   color: #FF8A80;
   margin-bottom: 20px; }
 
-.foodItem {
-  font-weight: 600;
-  font-size: .85em;
-  margin-top: 15px; }
+/*  Sugar stats that appear in search results tray and in the log container on the dashboard and landing page  */
+.logEntry {
+  margin-top: 10px;
+  border-top: 1px solid #FF8A80; }
 
-.foodStat {
+.itemEntry {
+  flex-grow: 1;
+  width: 20%;
+  padding-right: 10px; }
+
+.foodItem {
   font-weight: 300;
   font-size: .9em;
-  padding-bottom: 15px;
+  margin-top: 0px;
+  padding: 10px 0 5px; }
+
+.foodStat {
+  font-weight: 600;
+  font-size: .85em;
   margin: 5px 0 0; }
+
+/*  total sugr styles for center column on dashboard  */
+.intakeWrapper {
+  position: absolute;
+  top: 0px;
+  left: 15px;
+  width: 50%;
+  height: 10px; }
+
+.sugrIntake {
+  font: 400 10em "Playfair Display", serif;
+  font-size: 5.25em;
+  color: #FF8A80;
+  text-align: right; }
+
+.sugrDivide {
+  height: 10px;
+  width: 175px;
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translateY(-50%);
+  transform: rotate(135deg);
+  border-bottom: 1px solid #afafaf; }
+
+.sugrBenchmrk {
+  font: 400 10em "Playfair Display", serif;
+  font-size: 5.25em;
+  color: #afafaf;
+  position: absolute;
+  top: 30%;
+  left: 60%; }
+
+.smlGram {
+  font-size: .7em; }
 
 .dashLogo {
   font-size: 2em; }
+
+/* === User avatar and name  === */
+.avatarContainer {
+  font: 300 1em "Monserrat", sans-serif;
+  color: #FF8A80; }
+
+.userImg {
+  margin-right: 10px;
+  height: 50px;
+  border-radius: 50%; }
 
 /* === Search bar style === */
 .dashBrdSearch {
@@ -205,7 +262,7 @@ button, input {
 /* === Search-results display container under search bar see _displayResults.scss forcontent style === */
 .dashBrdresults {
   margin: 0 auto;
-  padding-right: 20px;
+  padding-right: 0;
   overflow: scroll;
   position: relative;
   border: 1px solid #e1e1e1;
@@ -230,16 +287,23 @@ button, input {
   font: 300 1em "Monserrat", sans-serif;
   border-radius: 0 0 5px 5px; }
 
-.addBtn {
+.addBtn, .removeBtn {
   font-size: .75em;
   padding: 2px 5px 3px;
-  height: 30px;
+  height: 35px;
+  width: 35px;
   background-color: #FF8A80;
-  border-radius: 5px;
-  box-sizing: border-box; }
-  .addBtn:hover, .addBtn:focus {
+  border-radius: 50%;
+  box-sizing: border-box;
+  text-align: center; }
+  .addBtn:hover, .removeBtn:hover, .addBtn:focus, .removeBtn:focus {
     color: #ff5b4d;
     cursor: pointer; }
+
+.removeBtn {
+  height: 25px;
+  width: 25px;
+  margin-top: 10px; }
 
 /* === The Close Button (x) upper right corner === */
 .xResultsClose {
@@ -256,11 +320,11 @@ button, input {
 /* === Page separator === */
 .dividerToday {
   text-align: center;
-  margin: 15px 0 20px;
+  margin: 5px 0 25px;
   color: #90CAF9;
   font-size: 3em;
   position: relative;
-  top: 130px; }
+  top: 120px; }
   .dividerToday:before, .dividerToday:after {
     content: '';
     position: absolute;
@@ -284,21 +348,14 @@ button, input {
   border-radius: 5px;
   flex-basis: 32%;
   height: 200px;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .ResultLogWell {
   overflow: scroll; }
 
-.downArrow {
-  position: absolute;
-  z-index: 20;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 25px;
-  height: 25px;
-  transform: rotate(45deg);
-  border: 5px solid #ffe8e6; }
+.sugrShamerWell {
+  position: relative; }
 
 /* -- sign in modal window -- */
 /* modal sign-up window*/

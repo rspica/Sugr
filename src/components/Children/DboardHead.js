@@ -1,23 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
 
-const styles = {
-  button: '',
-  typeColor: '#FF8A80',
-  avatar: {
-    background: 'tomato',
-  },
-  
-};
-
-export default () =>  {
+export default ({ user }) =>  {
 
     console.log('header prop ', this.props);
     return (
       <div className="headWrapperDashBrd">
-        <div className="UserAvatar" style= { styles. avatar }>
-          
+        <div className="avatarContainer flexRow">
+          <img className="userImg" src={require( '../assets/images/carol-mayo-jenkins-5197.jpg' )} alt={ 'user avatar or image' } />
+          <h1>{ user }</h1>
         </div>
      <div className="dashLogo">
          <h1>Sugr</h1>
