@@ -21,6 +21,7 @@ body {
 .headWrapperDashBrd {
     @extend .headWrapper;
     justify-content: space-between;
+    position: relative;
 }
 
 .flexRow {

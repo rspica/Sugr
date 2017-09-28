@@ -65,7 +65,8 @@ body {
   justify-content: flex-end; }
 
 .headWrapperDashBrd {
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: relative; }
 
 .flexRow {
   display: flex;
@@ -234,8 +235,15 @@ button, input {
 .smlGram {
   font-size: .7em; }
 
+#reactgooglegraph-1 {
+  background-color: transparent; }
+
 .dashLogo {
-  font-size: 2em; }
+  font-size: 3.25em;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -55%); }
 
 /* === User avatar and name  === */
 .avatarContainer {
@@ -344,18 +352,23 @@ button, input {
 .reportWell, .ResultLogWell, .sugrShamerWell, .chartWell {
   padding: 7px 15px;
   box-sizing: border-box;
-  background-color: white;
   border-radius: 5px;
   flex-basis: 32%;
-  height: 200px;
+  height: 300px;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.5); }
 
 .ResultLogWell {
   overflow: scroll; }
 
 .sugrShamerWell {
   position: relative; }
+
+.sugar-chart-container {
+  position: relative;
+  top: -15px;
+  left: -10px; }
 
 /* -- sign in modal window -- */
 /* modal sign-up window*/

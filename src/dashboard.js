@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import API         from './API';
 import Average     from './components/Children/Average';
+import Graph       from './components/Children/Graph';
 import DboardHead  from './components/Children/DboardHead';
 import FoodLog     from './components/Children/FoodLog'
 import SearchBar   from './components/Children/SearchBar';
@@ -169,7 +170,7 @@ closeResults = () => {
 
         </div>
         <div className="chartWell">
-                        
+          <Graph />
         </div> 
       </div>
       </div>
