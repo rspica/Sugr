@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/* line 1, components/assets/css/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, button, input, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -19,27 +21,34 @@ time, mark, audio, video {
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
+/* line 23, components/assets/css/_reset.scss */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
 
+/* line 27, components/assets/css/_reset.scss */
 body {
   line-height: 1; }
 
+/* line 30, components/assets/css/_reset.scss */
 ol, ul {
   list-style: none; }
 
+/* line 33, components/assets/css/_reset.scss */
 a {
   text-decoration: none; }
 
+/* line 36, components/assets/css/_reset.scss */
 blockquote, q {
   quotes: none; }
 
+/* line 39, components/assets/css/_reset.scss */
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
   content: none; }
 
+/* line 44, components/assets/css/_reset.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
@@ -48,6 +57,7 @@ table {
 /* -- $Typography -- */
 /* -- $color -- */
 /* -- $breakpoints -- */
+/* line 1, components/assets/css/_main.scss */
 body {
   width: 100%;
   max-width: 1000px;
@@ -55,30 +65,51 @@ body {
   font: 300 1em "Playfair Display", serif;
   background-color: #eeeeee; }
 
+/* line 9, components/assets/css/_main.scss */
 .headWrapper, .headWrapperMain, .headWrapperDashBrd {
   padding: 10px 20px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: white; }
 
+/* line 16, components/assets/css/_main.scss */
 .headWrapperMain {
-  justify-content: flex-end; }
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
 
+/* line 21, components/assets/css/_main.scss */
 .headWrapperDashBrd {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative; }
 
+/* line 27, components/assets/css/_main.scss */
 .flexRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box; }
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
+/* line 34, components/assets/css/_main.scss */
 .searchWrapper {
   width: 75%;
   margin: 0 auto;
   margin-top: 120px; }
 
+/* line 40, components/assets/css/_main.scss */
 .bgImage {
   width: 750px;
   margin: 0 auto;
@@ -86,14 +117,19 @@ body {
   z-index: -1;
   top: 60px;
   left: 50%;
-  transform: translatex(-50%); }
+  -webkit-transform: translatex(-50%);
+          transform: translatex(-50%); }
 
+/* line 50, components/assets/css/_main.scss */
 .logo {
   text-align: center;
   font: 400 10em "Playfair Display", serif;
   margin-bottom: 25px; }
 
+/* line 56, components/assets/css/_main.scss */
 .searchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 60px;
   border: 1px solid #90CAF9;
@@ -101,20 +137,33 @@ body {
   overflow: hidden; }
 
 /*  universal input field styles on all forms */
+/* line 66, components/assets/css/_main.scss */
 input {
   width: 100%;
   padding-left: 20px;
   color: #FF8A80 !important; }
+  /* line 72, components/assets/css/_main.scss */
+  input::-webkit-input-placeholder {
+    font: 300 1em "Monserrat", sans-serif;
+    font-style: italic;
+    color: #afafaf; }
+  input:-ms-input-placeholder {
+    font: 300 1em "Monserrat", sans-serif;
+    font-style: italic;
+    color: #afafaf; }
   input::placeholder {
     font: 300 1em "Monserrat", sans-serif;
     font-style: italic;
     color: #afafaf; }
+  /* line 78, components/assets/css/_main.scss */
   input:placeholder-shown {
     border: 2px solid #90CAF9; }
 
 /*. Unversal button style for all pages and forms*/
+/* line 85, components/assets/css/_main.scss */
 button, input {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-left: 5px;
   padding-right: 10px;
   font: 300 1em "Monserrat", sans-serif;
@@ -128,85 +177,111 @@ button, input {
   overflow: hidden;
   text-align: left;
   cursor: pointer; }
+  /* line 101, components/assets/css/_main.scss */
   button:hover, input:hover {
     color: #90CAF9; }
 
+/* line 106, components/assets/css/_main.scss */
 .navLabel button, .navLabel input {
   font: 300 1em "Monserrat", sans-serif;
   color: #FF8A80;
   height: 40px; }
+  /* line 111, components/assets/css/_main.scss */
   .navLabel button:hover, .navLabel input:hover {
     color: #afafaf; }
 
+/* line 118, components/assets/css/_main.scss */
 .navLabel li {
   padding-right: 15px; }
+/* line 120, components/assets/css/_main.scss */
 .navLabel a {
   font: 300 1em "Monserrat", sans-serif;
   color: #FF8A80;
   height: 40px;
   text-decoration: none; }
+  /* line 126, components/assets/css/_main.scss */
   .navLabel a:hover {
     color: #afafaf; }
 
+/* line 132, components/assets/css/_main.scss */
 .display {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
 
+/* line 136, components/assets/css/_main.scss */
 .btnSearch {
   float: right;
   width: 50px; }
 
+/* line 141, components/assets/css/_main.scss */
 .embed-submit-field {
   position: relative; }
+  /* line 144, components/assets/css/_main.scss */
   .embed-submit-field button, .embed-submit-field input {
     position: absolute;
     right: 10px;
     top: 7px; }
+    /* line 149, components/assets/css/_main.scss */
     .embed-submit-field button:hover, .embed-submit-field input:hover {
       background-color: #37C88D;
       color: #fff;
       cursor: pointer; }
 
+/* line 3, components/assets/css/_displayResults.scss */
 .resultGroup {
-  flex-grow: 2;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
   padding: 10px 0; }
 
+/* line 8, components/assets/css/_displayResults.scss */
 .separator {
   width: 97%;
   border-top: 1px solid #FF8A80; }
 
+/* line 13, components/assets/css/_displayResults.scss */
 .resultTitle {
   font-size: 1.5em;
   color: #FF8A80;
   margin-bottom: 20px; }
 
 /*  Sugar stats that appear in search results tray and in the log container on the dashboard and landing page  */
+/* line 20, components/assets/css/_displayResults.scss */
 .logEntry {
   margin-top: 10px;
   border-top: 1px solid #FF8A80; }
 
+/* line 25, components/assets/css/_displayResults.scss */
 .itemEntry {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   width: 20%;
   padding-right: 10px; }
 
+/* line 31, components/assets/css/_displayResults.scss */
 .foodItem {
   font-weight: 300;
   font-size: .9em;
   margin-top: 0px;
   padding: 10px 0 5px; }
 
+/* line 38, components/assets/css/_displayResults.scss */
 .foodStat {
   font-weight: 600;
   font-size: .85em;
   margin: 5px 0 0; }
 
 /*  total sugr counter styles for center column on dashboard  */
+/* line 46, components/assets/css/_displayResults.scss */
 .statContainer {
   /*  This holds sugar number and benchmark (ie. 23g/25g ) and positions the group in the well */
   position: relative;
   top: 25px;
   height: 175px; }
 
+/* line 52, components/assets/css/_displayResults.scss */
 .intakeWrapper {
   /*  This position users sugar in-take number right justified in relation to the (/25g) benchmark numbers */
   position: absolute;
@@ -215,22 +290,27 @@ button, input {
   width: 50%;
   height: 10px; }
 
+/* line 60, components/assets/css/_displayResults.scss */
 .sugrIntake {
   font: 400 10em "Playfair Display", serif;
   font-size: 5.25em;
   color: #FF8A80;
   text-align: right; }
 
+/* line 67, components/assets/css/_displayResults.scss */
 .sugrDivide {
   height: 10px;
   width: 175px;
   position: absolute;
   top: 50%;
   left: 33%;
-  transform: translateY(-50%);
-  transform: rotate(135deg);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
   border-bottom: 1px solid #afafaf; }
 
+/* line 78, components/assets/css/_displayResults.scss */
 .sugrBenchmrk {
   font: 400 10em "Playfair Display", serif;
   font-size: 5.25em;
@@ -239,30 +319,39 @@ button, input {
   top: 30%;
   left: 60%; }
 
+/* line 87, components/assets/css/_displayResults.scss */
 .smlGram {
   font-size: .7em; }
 
+/* line 91, components/assets/css/_displayResults.scss */
 #reactgooglegraph-1 {
-  background-color: transparent; }
+  background-color: transparent;
+  position: relative;
+  top: -25px; }
 
+/* line 1, components/assets/css/_dashBrd.scss */
 .dashLogo {
   font-size: 3.25em;
   position: absolute;
   top: 45%;
   left: 50%;
-  transform: translate(-50%, -55%); }
+  -webkit-transform: translate(-50%, -55%);
+          transform: translate(-50%, -55%); }
 
 /* === User avatar and name  === */
+/* line 14, components/assets/css/_dashBrd.scss */
 .avatarContainer {
   font: 300 1em "Monserrat", sans-serif;
   color: #FF8A80; }
 
+/* line 19, components/assets/css/_dashBrd.scss */
 .userImg {
   margin-right: 10px;
   height: 50px;
   border-radius: 50%; }
 
 /* === Search bar style === */
+/* line 27, components/assets/css/_dashBrd.scss */
 .dashBrdSearch {
   width: 75%;
   margin: 0 auto;
@@ -271,10 +360,12 @@ button, input {
   z-index: 10;
   top: 0px;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   overflow: hidden; }
 
 /* === Search-results display container under search bar see _displayResults.scss forcontent style === */
+/* line 40, components/assets/css/_dashBrd.scss */
 .dashBrdresults {
   margin: 0 auto;
   padding-right: 0;
@@ -283,8 +374,10 @@ button, input {
   border: 1px solid #e1e1e1;
   top: -3px;
   z-index: -1;
+  -webkit-transition: max-height ease 0.2s;
   transition: max-height ease 0.2s; }
 
+/* line 52, components/assets/css/_dashBrd.scss */
 .resultsWrapper {
   height: 250px;
   margin: 0 auto;
@@ -292,9 +385,12 @@ button, input {
   width: 75%;
   position: relative; }
 
+/* line 60, components/assets/css/_dashBrd.scss */
 .resultWell {
   padding: 15px 20px 10px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: rgba(245, 245, 245, 0.7);
   width: 100%;
   margin: 0 auto;
@@ -302,6 +398,7 @@ button, input {
   font: 300 1em "Monserrat", sans-serif;
   border-radius: 0 0 5px 5px; }
 
+/* line 72, components/assets/css/_dashBrd.scss */
 .addBtn, .removeBtn {
   font-size: .75em;
   padding: 2px 5px 3px;
@@ -309,18 +406,22 @@ button, input {
   width: 35px;
   background-color: #FF8A80;
   border-radius: 50%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   text-align: center; }
+  /* line 82, components/assets/css/_dashBrd.scss */
   .addBtn:hover, .removeBtn:hover, .addBtn:focus, .removeBtn:focus {
     color: #ff5b4d;
     cursor: pointer; }
 
+/* line 89, components/assets/css/_dashBrd.scss */
 .removeBtn {
   height: 25px;
   width: 25px;
   margin-top: 10px; }
 
 /* === The Close Button (x) upper right corner === */
+/* line 97, components/assets/css/_dashBrd.scss */
 .xResultsClose {
   position: fixed;
   z-index: 10;
@@ -328,11 +429,13 @@ button, input {
   top: 65px;
   color: #90CAF9;
   font-size: 1.7em; }
+  /* line 105, components/assets/css/_dashBrd.scss */
   .xResultsClose:hover, .xResultsClose:focus {
     color: #FF8A80;
     cursor: pointer; }
 
 /* === Page separator === */
+/* line 113, components/assets/css/_dashBrd.scss */
 .dividerToday {
   text-align: center;
   margin: 5px 0 25px;
@@ -340,6 +443,7 @@ button, input {
   font-size: 3em;
   position: relative;
   top: 120px; }
+  /* line 121, components/assets/css/_dashBrd.scss */
   .dividerToday:before, .dividerToday:after {
     content: '';
     position: absolute;
@@ -347,44 +451,140 @@ button, input {
     width: 40%;
     top: 33px;
     border-bottom: 1px solid #90CAF9; }
+  /* line 131, components/assets/css/_dashBrd.scss */
   .dividerToday:after {
     right: 0; }
 
 /* === Lower half page reporting conatiners on search selections see _displayResults.scss for content style === */
+/* line 137, components/assets/css/_dashBrd.scss */
 .reportContainer {
   position: relative;
   top: 130px;
   font: 300 1em "Monserrat", sans-serif; }
 
+/* line 142, components/assets/css/_dashBrd.scss */
 .reportWell, .ResultLogWell, .sugrShamerWell, .chartWell {
   padding: 7px 15px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 5px;
-  flex-basis: 32%;
+  -ms-flex-preferred-size: 32%;
+      flex-basis: 32%;
   height: 300px;
   position: relative;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.5); }
 
+/* line 154, components/assets/css/_dashBrd.scss */
 .ResultLogWell {
   overflow: scroll; }
 
+/* line 159, components/assets/css/_dashBrd.scss */
 .sugrShamerWell {
   position: relative; }
 
+/* line 163, components/assets/css/_dashBrd.scss */
 .chartWell {
   overflow: hidden; }
 
+/* line 168, components/assets/css/_dashBrd.scss */
 .sugar-chart-container {
   position: relative;
   top: -15px;
   left: -10px; }
 
+/* line 1, components/assets/css/_ShameBtn.scss */
+.Shamecontainer {
+  margin-top: 50px;
+  margin-left: 10px;
+  position: relative; }
+
+/* line 7, components/assets/css/_ShameBtn.scss */
+.shameBtn {
+  position: absolute;
+  left: -2px;
+  content: '❕';
+  font-size: 1.25em;
+  height: 25px;
+  width: 25px;
+  z-index: 20; }
+
+/* line 17, components/assets/css/_ShameBtn.scss */
+.pulse {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #FF8A80;
+  border-radius: 30px;
+  background-color: #ffb9b3;
+  z-index: 10;
+  position: absolute; }
+
+/* line 27, components/assets/css/_ShameBtn.scss */
+.dot {
+  border: 20px solid #afafaf;
+  background: transparent;
+  border-radius: 100px;
+  height: 75px;
+  width: 75px;
+  -webkit-animation: pulse 3s ease-out infinite;
+          animation: pulse 3s ease-out infinite;
+  position: absolute;
+  top: -23px;
+  left: -22px;
+  z-index: 1;
+  opacity: 0; }
+
+@-webkit-keyframes pulse {
+  0% {
+    -moz-transform: scale(0);
+    opacity: 0.0; }
+  25% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0.1; }
+  50% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+    opacity: 0.3; }
+  75% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0.5; }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.0; } }
+
+@keyframes pulse {
+  0% {
+    -moz-transform: scale(0);
+    opacity: 0.0; }
+  25% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0.1; }
+  50% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+    opacity: 0.3; }
+  75% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    opacity: 0.5; }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0.0; } }
 /* -- sign in modal window -- */
 /* modal sign-up window*/
+/* line 11, components/assets/css/_modals.scss */
 .modalForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   height: 100%;
   z-index: 8;
@@ -396,21 +596,26 @@ button, input {
   background: rgba(0, 0, 0, 0.75); }
 
 /* modal inputs */
+/* line 24, components/assets/css/_modals.scss */
 .modalContent {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: white;
   z-index: 10;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 50%;
   padding: 50px 3% 20px;
   max-width: 510px; }
 
+/* line 36, components/assets/css/_modals.scss */
 .inputWrapper {
   margin-bottom: 30px; }
 
 /* The Close Button (x) upper right corner*/
+/* line 42, components/assets/css/_modals.scss */
 .xClose {
   position: absolute;
   z-index: 10;
@@ -418,16 +623,19 @@ button, input {
   top: 10px;
   color: #90CAF9;
   font-size: 1.7em; }
+  /* line 50, components/assets/css/_modals.scss */
   .xClose:hover, .xClose:focus {
     color: #FF8A80;
     cursor: pointer; }
 
+/* line 57, components/assets/css/_modals.scss */
 .welcome h1 {
   font: 400 10em "Playfair Display", serif;
   font-size: 3.65em;
   color: #FF8A80;
   margin-bottom: 20px; }
 
+/* line 64, components/assets/css/_modals.scss */
 .errDisplay {
   background-color: red;
   font: 300 1em "Monserrat", sans-serif;
@@ -436,15 +644,18 @@ button, input {
   padding: 10px 20px 10px;
   margin-bottom: 20px;
   position: relative; }
+  /* line 73, components/assets/css/_modals.scss */
   .errDisplay:before {
     content: 'Attention: '; }
 
+/* line 78, components/assets/css/_modals.scss */
 .dividerOr {
   text-align: center;
   margin: 20px 0;
   color: #90CAF9;
   font-size: .8em;
   position: relative; }
+  /* line 85, components/assets/css/_modals.scss */
   .dividerOr:before, .dividerOr:after {
     content: '';
     position: absolute;
@@ -452,99 +663,126 @@ button, input {
     width: 45%;
     top: 9px;
     border-bottom: 1px solid #90CAF9; }
+  /* line 95, components/assets/css/_modals.scss */
   .dividerOr:after {
     right: 0; }
 
 /*-- Responsive breakpoints --*/
 @media screen and (min-width: 1001px) {
+  /* line 3, components/assets/css/_responsive.scss */
   .modalContent {
     padding-bottom: 50px; }
 
+  /* line 7, components/assets/css/_responsive.scss */
   .bgImage {
     width: 915px; }
 
+  /* line 11, components/assets/css/_responsive.scss */
   .logo {
     margin-bottom: 50px;
     font-size: 15em; }
 
+  /* line 15, components/assets/css/_responsive.scss */
   .searchWrapper {
     margin-top: 110px; }
 
+  /* line 19, components/assets/css/_responsive.scss */
   .resultsWrapper {
     height: 200px;
     overflow: scroll; } }
 @media screen and (min-width: 725px) and (max-width: 1000px) {
+  /* line 27, components/assets/css/_responsive.scss */
   .modalContent {
     width: 67%;
     padding-bottom: 40px; }
 
+  /* line 32, components/assets/css/_responsive.scss */
   .searchWrapper {
     margin-top: 120px;
     width: 615px; }
 
+  /* line 37, components/assets/css/_responsive.scss */
   .dashBrdSearch {
     width: 615px; }
 
+  /* line 41, components/assets/css/_responsive.scss */
   .resultsWrapper {
     width: 615px; } }
 @media screen and (min-width: 601px) and (max-width: 724px) {
+  /* line 47, components/assets/css/_responsive.scss */
   .modalContent {
     width: 70%;
     padding-bottom: 40px; }
 
+  /* line 52, components/assets/css/_responsive.scss */
   .searchWrapper {
     margin-top: 120px;
     width: 615px; }
 
+  /* line 57, components/assets/css/_responsive.scss */
   .dashBrdSearch {
     width: 615px; }
 
+  /* line 61, components/assets/css/_responsive.scss */
   .resultsWrapper {
     width: 615px; }
 
+  /* line 65, components/assets/css/_responsive.scss */
   .welcome h1 {
     font-size: 3.45em; } }
 @media screen and (max-width: 600px) {
+  /* line 72, components/assets/css/_responsive.scss */
   .logo {
     font-size: 7.7em; }
 
+  /* line 76, components/assets/css/_responsive.scss */
   .headWrapper, .headWrapperMain, .headWrapperDashBrd {
     padding: 6px 10px; }
 
+  /* line 80, components/assets/css/_responsive.scss */
   .bgImage {
     width: 500px;
     top: 40px; }
 
+  /* line 85, components/assets/css/_responsive.scss */
   .searchWrapper {
     margin-top: 90px;
     width: 90%; }
 
+  /* line 90, components/assets/css/_responsive.scss */
   .resultsWrapper {
     width: 90%;
     height: 180px; }
 
+  /* line 95, components/assets/css/_responsive.scss */
   .searchBar {
     height: 45px; }
 
+  /* line 99, components/assets/css/_responsive.scss */
   .dashBrdSearch {
     width: 90%; }
 
+  /* line 103, components/assets/css/_responsive.scss */
   .welcome h1 {
     font-size: 2.9em;
     margin-bottom: 0; }
 
   /* -- material-ui button style for type -- */
+  /* line 111, components/assets/css/_responsive.scss */
   Button.div.span {
     padding: 0; }
 
   /* -------------------------------------- */
+  /* line 116, components/assets/css/_responsive.scss */
   .modalContent {
     width: 90%;
     padding-top: 30px; }
 
+  /* line 121, components/assets/css/_responsive.scss */
   .titleText {
     font-size: 1.7em; }
 
+  /* line 125, components/assets/css/_responsive.scss */
   .boxStyle {
     margin-bottom: 15px; } }
 /*@media screen and (max-width: 460px) {
