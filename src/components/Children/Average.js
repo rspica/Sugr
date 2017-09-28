@@ -7,8 +7,8 @@ export default ({ sugar }) => {
 //*Justa buncha Math. passed from the search results pulled from the front end--the API. There will eventually be numbers from the db. */
     return(
         <div>
-            <h1 shamer Title>Current daily total:</h1>
-                    <div>
+            <h1 shamer Title>Current sugar consumed</h1>
+                    <div className="statContainer">
                         <div className="intakeWrapper">
                             <h4 className="sugrIntake">{ sugarConsumed }<span className="smlGram">g</span></h4>
                         </div>
