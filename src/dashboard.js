@@ -34,7 +34,8 @@ export default class Dashboard extends Component {
         showResults: false,
         sugar: 0,
         top: '',
-        user: 'Carol Jenkins'
+        user: 'Carol Jenkins',
+        sugrIntake: '',
       }
     this.inputChange  = this.inputChange.bind(this);
     this.searchFood   = this.searchFood.bind(this);
@@ -89,14 +90,16 @@ closeResults = () => {
   onAddFood = (foodSelect) => {
     console.log("clicking add food from list")
     console.log("in onAddFood function click food pass back Result: ", foodSelect)
-    // const foodLog = this.state.foodToAdd.concat({foodSelect})   
     var foodArray = this.state.foodToAdd;
+    let sugrIntake;
     foodArray.push(foodSelect); 
     this.setState({
-      foodToAdd: foodArray
+      foodToAdd: foodArray,
+      sugrIntake: foodArray[0].nf_sugars
     })
     console.log('this is a foodArray: ',foodArray);
     console.log("food we will send to log well: ", this.state.foodToAdd)
+    console.log("sugrIntake: ",sugrIntake);
   }
 
 // input value state change for all input fields ==============================
@@ -121,7 +124,8 @@ closeResults = () => {
       <div>
 
       <div>
-        <DboardHead />
+        <DboardHead 
+        user = { this.state.user }/>
       </div>
 
       <div className="dashBrdSearch">

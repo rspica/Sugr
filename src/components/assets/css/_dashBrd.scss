@@ -2,6 +2,22 @@
     font-size: 2em;
 }
 
+.dashBrdHeader {
+    
+}
+ /* === User avatar and name  === */
+.avatarContainer {
+    font: $formFont;
+    color: $primaryColor;
+}
+
+.userImg {
+    margin-right: 10px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
 /* === Search bar style === */
 .dashBrdSearch {
     width: 75%;
@@ -19,7 +35,7 @@
 .dashBrdresults {
     // height: 200px;
     margin: 0 auto;
-    padding-right: 20px;
+    padding-right: 0;
     overflow: scroll;
     position: relative;
     border: 1px solid rgb(225, 225, 225);
@@ -51,16 +67,25 @@
 .addBtn {
     font-size: .75em;
     padding: 2px 5px 3px;
-    height: 30px;
+    height: 35px;
+    width: 35px;
     background-color: $primaryColor;
-    border-radius: 5px;
+    border-radius: 50%;
     box-sizing: border-box;
+    text-align: center;
 
     &:hover,
     &:focus {
         color: darken( $primaryColor, 10% );
         cursor: pointer;
     }
+}
+
+.removeBtn {
+    @extend .addBtn;
+    height: 25px;
+    width: 25px;
+    margin-top: 10px;
 }
 
 /* === The Close Button (x) upper right corner === */
@@ -82,11 +107,11 @@
 /* === Page separator === */
 .dividerToday {
     text-align: center;
-    margin: 15px 0 20px;
+    margin: 5px 0 25px;
     color: $secondaryColor;
     font-size: 3em;
     position: relative;
-    top: 130px;
+    top: 120px;
 
     &:before,
     &:after {
@@ -117,6 +142,7 @@
     flex-basis: 32%;
     height: 200px;
     position: relative;
+    overflow: hidden;
 }
 .ResultLogWell {
     @extend .reportWell;
@@ -125,19 +151,8 @@
 
 .sugrShamerWell {
     @extend .reportWell;
+    position: relative;
 }
 .chartWell {
     @extend .reportWell;
-}
-
-.downArrow {
-    position: absolute;
-    z-index: 20;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 25px;
-    height: 25px;
-    transform: rotate(45deg);
-    border: 5px solid lighten($primaryColor, 20%)
 }
