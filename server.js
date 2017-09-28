@@ -13,7 +13,7 @@ var app = express();
 
 // Sets an initial port. We'll use this later in our listener
 // var PORT = process.env.PORT || 27017;
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 // Run Morgan for Logging
 app.use(logger('dev'));
@@ -22,7 +22,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-app.use(express.static('public'));
+
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('build'));
+} else {
+	app.use(express.static('public'));
+}
+
+console.log(process.env.NODE_ENV);
 
 // -------------------------------------------------
 //MongoDB Configuration configuration (Change this URL to your own DB)
@@ -62,7 +69,7 @@ app.get('/api/saved', function(req, res) {
 });
 
 // Route to add an aood to saved list
-app.post('/api/save', function(req, res) {
+app.post('/api/saved', function(req, res) {
 	console.log('calling /api/saved');
 
 	var newFood = new Food(req.body);
@@ -95,8 +102,11 @@ app.post('/api/save', function(req, res) {
 
 // Any non API GET routes will be directed to our React App and handled by React Router
 app.get('*', function(req, res) {
-	console.log('Hitting home');
-	res.sendFile(__dirname + '/public/index.html');
+	if (process.env.NODE_ENV === 'production') {
+		res.sendFile(__dirname + '/build/index.html');
+	} else {
+		res.sendFile(__dirname + '/public/index.html');
+	}
 });
 
 // Listener
