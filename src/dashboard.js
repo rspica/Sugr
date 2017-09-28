@@ -174,8 +174,7 @@ export default class Dashboard extends Component {
               className="chartWell"
               style={{
                 display: this.state.logged ? 'block' : 'inline-block',
-                marginLeft: this.state.logged ? '0' : '33%',
-                height: this.state.logged ? '100%' : '600%'
+                marginLeft: this.state.logged ? '0' : '33%'
               }}
             >
               <Graph />
