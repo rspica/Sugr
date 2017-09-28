@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 
 export default ({ user }) =>  {
 
-    console.log('header prop ', this.props);
     return (
       <div className="headWrapperDashBrd">
         <div className="avatarContainer flexRow">

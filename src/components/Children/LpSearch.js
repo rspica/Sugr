@@ -4,8 +4,8 @@ import SearchBar from './SearchBar.js';
 
 export default class LpSearch extends Component {
   render() {
-    console.log("LpSearch prop ",this.props)
-    console.log(' this.props.clickSearch: ',  this.props.inputChange )
+    // console.log("LpSearch prop ",this.props)
+    // console.log(' this.props.clickSearch: ',  this.props.inputChange )
     return (
     
     <div>

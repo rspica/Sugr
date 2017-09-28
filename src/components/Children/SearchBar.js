@@ -23,8 +23,8 @@ const SearchStyle = {
 };
 
 export default ({ inputChange, searchFood }) => {
-    console.log('input value: ',this.refs)
-  console.log("Search Bar prop ",this.props)
+//     console.log('input value: ',this.refs)
+//   console.log("Search Bar prop ",this.props)
   return (
     <div className="searchBar dBoardSearch">
         <input 

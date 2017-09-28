@@ -11,11 +11,10 @@ const AnimStyle = {
   
 
   export default ({ onAddFood, results, top, hasBtn }) => {
-
-    console.log('top indise of searchDspl: ', top)
-    console.log('onAddFood indise of searchDspl: ', onAddFood)
-    console.log('results indise of searchDspl: ', results)
-    console.log('hasBtn indise of searchDspl: ', hasBtn)
+    // console.log('top indise of searchDspl: ', top)
+    // console.log('onAddFood indise of searchDspl: ', onAddFood)
+    // console.log('results indise of searchDspl: ', results)
+    // console.log('hasBtn indise of searchDspl: ', hasBtn)
         return (
             <div className="resultWell" 
                 style = {{ ...AnimStyle, top: top } }>
