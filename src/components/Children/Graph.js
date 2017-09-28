@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Chart } from 'react-google-charts';
 
@@ -11,7 +10,7 @@ export default class Graph extends Component {
 				title: '',
 				hAxis: { title: 'Day' },
 				vAxis: { title: 'gm of sugar consumed daily', minValue: 0, maxValue: 30 },
-				colors: ['#FF8A80', '#afafaf', '#90CAF9' ],
+				colors: ['#FF8A80', '#afafaf', '#90CAF9'],
 				backgroundColor: 'transparent',
 				// this sets the types of the three rows, sugar consumed to bar and female and male allowance to a line
 				seriesType: 'line',

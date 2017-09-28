@@ -10,6 +10,7 @@ import API from './API.js';
 import Routes from '../components/routes';
 import DboardHead from '../components/Children/DboardHead';
 import { Modal } from 'react-bootstrap';
+import Welcome from '../components/Children/Welcome';
 
 class Main extends Component {
   state = {

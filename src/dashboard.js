@@ -11,6 +11,7 @@ import FoodLog from './components/Children/FoodLog';
 import SearchBar from './components/Children/SearchBar';
 import SearchDspl from './components/Children/SearchDspl';
 import UserProfile from './components/Children/UserProfile';
+import Welcome from './components/Children/Welcome';
 
 // Material-ui custom themes =========================================================
 const muiTheme = getMuiTheme({
@@ -174,10 +175,20 @@ export default class Dashboard extends Component {
               className="chartWell"
               style={{
                 display: this.state.logged ? 'block' : 'inline-block',
-                marginLeft: this.state.logged ? '0' : '33%'
+                marginLeft: this.state.logged ? '0' : 'auto',
+                minWidth: this.state.logged ? '0%' : '100%'
               }}
             >
               <Graph />
+              <div
+                style={{
+                  display: this.state.logged ? 'none' : 'block',
+                  position: this.state.logged ? 'absolute' : 'relative',
+                  zIndex: this.state.logged ? -2 : 2
+                }}
+              >
+                <Welcome logged={this.state.logged} />
+              </div>
             </div>
           </div>
         </div>
