@@ -41,9 +41,15 @@
     margin: 5px 0 0;   
 }
 
-/*  total sugr styles for center column on dashboard  */
+/*  total sugr counter styles for center column on dashboard  */
 
-.intakeWrapper {
+.statContainer {  /*  This holds sugar number and benchmark (ie. 23g/25g ) */
+    position: relative;
+    top: 25px;
+    height: 175px;
+}
+
+.intakeWrapper {   /*  This position users sugar in-take number right justified  */
     position: absolute;
     top: 0px;
     left: 15px;

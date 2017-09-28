@@ -31,6 +31,8 @@ export default class Graph extends Component {
 	}
 	render() {
 		return (
+		<div className=" ">
+		<h1 shamer Title>Seven day look back</h1>
 			<div className="sugar-chart-container">
 				<Chart
 					chartType="ComboChart"
@@ -41,6 +43,7 @@ export default class Graph extends Component {
 					legend_toggle
 				/>
 			</div>
+		</div>	
 		);
 	}
 }

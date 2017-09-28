@@ -10,6 +10,7 @@ export default ( { foodToAdd } ) => {
 
     return (
         <div>
+            <h1 className="userWellTitle">Daily log</h1>
             <ul>
             { foodToAdd.map((food, i) => {
                 var { item_name, brand_name, nf_sugars, nf_serving_size_qty } = food;
