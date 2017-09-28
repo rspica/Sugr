@@ -6,7 +6,7 @@ const styles = {
 }
 export default ( { foodToAdd } ) => {
 
-    console.log('foodlog props: ', foodToAdd)
+    // console.log('foodlog props: ', foodToAdd)
 
     return (
         <div>

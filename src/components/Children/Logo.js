@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Logo extends Component {
   render() {
-    console.log (this.props.bgImage)
+
     return (
 
       <div className="logo">

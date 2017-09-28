@@ -24,6 +24,7 @@ export default class Dashboard extends Component {
     super(props) 
       this.state = {
         brand: '',
+        currSugar: 0,
         displayResults: 'none',
         food: '',
         foodToAdd: [],
@@ -56,7 +57,7 @@ export default class Dashboard extends Component {
           displayResults: 'block',
           top: -5 + 'px', 
         });
-        console.log('in searchFood function display state is: ', this.state.displayResults)
+ //       console.log('in searchFood function display state is: ', this.state.displayResults)
       })
       .catch(err => console.log(err));
   };
@@ -83,42 +84,50 @@ closeResults = () => {
     alert('logged item ' + item_name + ' ' + brand_name + ' ' + nf_sugars + ' grams on ' + date);
 
     // calls food log for dashboard render ==================================
-    this.onAddFood()
+    //this.onAddFood()
   };
 
 // collects the food item to be logged on dashboard ==================
   onAddFood = (foodSelect) => {
-    console.log("clicking add food from list")
-    console.log("in onAddFood function click food pass back Result: ", foodSelect)
+// this grabs the current clicked search selection and push to foodArray
     var foodArray = this.state.foodToAdd;
-    let sugrIntake;
     foodArray.push(foodSelect); 
-    this.setState({
-      foodToAdd: foodArray,
-      sugrIntake: foodArray[0].nf_sugars
-    })
+    let sugar;
+    if (this.state.currSugar == 0) {
+      sugar = this.state.currSugar;
+    } else {
+      sugar = 0;
+    }
+    
+    
     console.log('this is a foodArray: ',foodArray);
-    console.log("food we will send to log well: ", this.state.foodToAdd)
-    console.log("sugrIntake: ",sugrIntake);
+    for(var i = 0; i < foodArray.length; i++) {
+      console.log("Food item " + i + " is " )
+      console.log(foodArray[i])
+      console.log(foodArray[i].nf_sugars)
+      sugar = sugar + parseFloat(foodArray[i].nf_sugars)   
+    }
+    
+    console.log("this is SUGAR**********:",sugar)
+    this.setState({
+      currSugar: sugar
+    })
   }
+
 
 // input value state change for all input fields ==============================
   inputChange = (value, key ) => {
     this.setState({
       [key]: value
     })
-    console.log('value: ',value, 'key: ' ,key)
+   // console.log('value: ',value, 'key: ' ,key)
   };
 
-
- 
   
   render() {
     // searchResults shows/hides search results display on 'X' click in upper right corner
     // let showResults = this.state.showResults ? this.setState({ top: -5 + 'px' }) : this.setState({ top: -2000 + 'px' })
-    console.log('results diplay? ',this.state.displayResults)
-    console.log('this it top position: ',this.state.top)
-    console.log('showResults is: ',this.state.showResults)
+
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
       <div>
@@ -156,7 +165,7 @@ closeResults = () => {
             foodToAdd = { this.state.foodToAdd }/>
         </div>
         <div className="sugrShamerWell">
-          <Average foodToAdd = { this.state.foodToAdd }/>
+          <Average sugar = { this.state.currSugar }/>
 
         </div>
         <div className="chartWell">
