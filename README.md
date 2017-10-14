@@ -7,7 +7,7 @@
 #
 #
 ## Search Page
-![Image of Search Page](https://funduval.files.wordpress.com/2017/10/screen-shot-2017-10-14-at-12-15-44-am.png)
+![Image of Search Page](https://funduval.files.wordpress.com/2017/10/screen-shot-2017-10-14-at-12-15-44-am-e1507957057171.png)
 #
 
 ## Dashboard
